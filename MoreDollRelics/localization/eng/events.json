@@ -1,0 +1,25 @@
+{
+	"NEW_DOLL_ROOM.title": "Doll Room",
+	"NEW_DOLL_ROOM.pages.INITIAL.description": "You enter a hidden room...\n\nIt's packed with an array of dolls. Each are unique, their expressions ranging from [green]joy[/green] to [purple]sorrow[/purple], their attire spanning centuries and realms beyond your own.\n\nA [sine][blue]chorus of whispers[/blue][/sine] grows louder and louder until [jitter][red]the dolls are shouting[/red][/jitter] over each other and calling for you...\n\nYou must choose one and leave immediately.",
+	"NEW_DOLL_ROOM.pages.INITIAL.options.RANDOM.description": "Obtain a random [gold]Doll Relic[/gold].",
+	"NEW_DOLL_ROOM.pages.INITIAL.options.RANDOM.title": "Pick at Random",
+	"NEW_DOLL_ROOM.pages.INITIAL.options.TAKE_SOME_TIME.description": "Lose [red]{TakeTimeHpLoss}[/red] HP. Choose [blue]1[/blue] of [blue]2[/blue] [gold]Doll Relics[/gold].",
+	"NEW_DOLL_ROOM.pages.INITIAL.options.TAKE_SOME_TIME.title": "Take Some Time",
+	"NEW_DOLL_ROOM.pages.INITIAL.options.EXAMINE.description": "Lose [red]{ExamineHpLoss}[/red] HP. Choose [blue]1[/blue] of [blue]3[/blue] [gold]Doll Relics[/gold].",
+	"NEW_DOLL_ROOM.pages.INITIAL.options.EXAMINE.title": "Examine Each and Make the Best Choice",
+	"NEW_DOLL_ROOM.pages.INITIAL.options.EXTRA.description": "Open a hidden shelf of unfamiliar dolls.",
+	"NEW_DOLL_ROOM.pages.INITIAL.options.EXTRA.title": "Inspect Strange Dolls",
+	"NEW_DOLL_ROOM.pages.TAKE_SOME_TIME.description": "Amid the shouting, you quickly examine the dolls.\n\nOne of these two may be good?\nIt's hard to concentrate through the [red]mental anguish[/red].",
+	"NEW_DOLL_ROOM.pages.EXAMINE.description": "You examine each and every doll before you make your choice.\n\nThe shouting has reached a [red][jitter]piercing crescendo[/jitter][/red] but you manage to make a choice before going completely mad!",
+	"NEW_DOLL_ROOM.pages.EXTRA.description": "You focus on three dolls that clearly do not belong to this room.\n\nTheir presence feels foreign, yet oddly compelling...",
+	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.title": "see more dolls",
+	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.description": "Lose [red]5[/red] HP. Then look at [blue]2[/blue] more [gold]doll relics[/gold].",
+	"NEW_DOLL_ROOM.pages.MORE.description": "You pay the price in blood. In the dim light, two more dolls catch your eye...",
+	"NEW_DOLL_ROOM.pages.TAKE.options.TAKE.description": "Receive [gold]{RelicName}[/gold].",
+
+	"NEW_DOLL_ROOM.pages.VISTA_DOLL.description": "This [gold]familiar doll[/gold] doesn't exist.\nBut when you reach out to the air, it's in your hand.\n[gold]“Don't lose my hat!”[/gold]\nYou seem to remember a story about a [gold]familiar person[/gold] and a trade.",
+	"NEW_DOLL_ROOM.pages.WXW_DOLL.description": "A [purple][i][jitter]doll[/jitter][/i][/purple] from another dimension.\nIt feels familiar, yet strangely comforting.\n[purple][i][jitter]Time, space, and dimension have brought us together again.[/jitter][/i][/purple]",
+	"NEW_DOLL_ROOM.pages.BAIZEALER_DOLL.description": "You feel countless starlike sparks pulsing from within the doll.\n[blue][sine]“The stars will answer.”[/sine][/blue]",
+	"NEW_DOLL_ROOM.pages.GALLOP_DOLL.description": "A doll that seems ready to run at any moment.\n[gold]“Run with me.”[/gold]",
+	"NEW_DOLL_ROOM.pages.DOGKING_DOLL.description": "A dignified doll with a kingly air.\n[gold]“Woof.”[/gold]"
+}

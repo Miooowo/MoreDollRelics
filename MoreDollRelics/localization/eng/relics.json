@@ -1,0 +1,17 @@
+{
+	"VISTA_DOLL.title": "Vista Doll",
+	"VISTA_DOLL.flavor": "[gold]“Don't lose my hat!”[/gold]",
+	"VISTA_DOLL.description": "Store discount [blue]30%[/blue]. \nWhen you enter the store, recover [blue]1[/blue] HP per [gold]20[/gold] gold. \nGold from defeating enemies is doubled.\n [red]Hey, watch your doll![/red]",
+	"WXW_DOLL.title": "WXW Doll",
+	"WXW_DOLL.flavor": "[purple][i][jitter]\"Please read the dimension manual carefully!\"[/jitter][/i][/purple]--WXW",
+	"WXW_DOLL.description": "When you would die, heal [green]1[/green] HP and gain [blue]999[/blue] block. You gain [blue]99[/blue] block per turn.(work once per combat)",
+	"BAIZEALER_DOLL.title": "Baizealer Doll",
+	"BAIZEALER_DOLL.flavor": "The stars will shine with you.",
+	"BAIZEALER_DOLL.description": "At the start of each combat, gain [blue]6[/blue] Thorns. \nWhenever you are attacked, deal [red]1[/red] damage to a random enemy [blue]6[/blue] times.",
+	"GALLOP_DOLL.title": "Gallop Doll",
+	"GALLOP_DOLL.flavor": "\"Run with me.\"",
+	"GALLOP_DOLL.description": "At the start of each combat, gain [blue]1[/blue] [red]Strength[/red] per [blue]20%[/blue] HP lost. \nWhenever you lose HP in combat, heal [green]1[/green] HP per [blue]5[/blue] HP lost. \nAt the end of each combat, heal [green]3[/green] HP.",
+	"DOGKING_DOLL.title": "Dogking Doll",
+	"DOGKING_DOLL.flavor": "\"I'm hungry. I want to eat. Woof!\"",
+	"DOGKING_DOLL.description": "At the start of your turn, heal [green]1[/green] HP and gain [blue]2[/blue] Block. \nWhen you take unblocked damage equal to or greater than [blue]20%[/blue] of your max HP during your turn, gain [blue]1[/blue] [purple]Intangible[/purple] at the start of next turn."
+}
