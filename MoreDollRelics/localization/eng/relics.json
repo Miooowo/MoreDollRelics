@@ -13,5 +13,8 @@
 	"GALLOP_DOLL.description": "At the start of each combat, gain [blue]1[/blue] [red]Strength[/red] per [blue]20%[/blue] HP lost. \nWhenever you lose HP in combat, heal [green]1[/green] HP per [blue]5[/blue] HP lost. \nAt the end of each combat, heal [green]3[/green] HP.",
 	"DOGKING_DOLL.title": "Dogking Doll",
 	"DOGKING_DOLL.flavor": "\"I'm hungry. I want to eat. Woof!\"",
-	"DOGKING_DOLL.description": "At the start of your turn, heal [green]1[/green] HP and gain [blue]2[/blue] Block. \nWhen you take unblocked damage equal to or greater than [blue]20%[/blue] of your max HP during your turn, gain [blue]1[/blue] [purple]Intangible[/purple] at the start of next turn."
+	"DOGKING_DOLL.description": "At the start of your turn, heal [green]1[/green] HP and gain [blue]2[/blue] Block. \nWhen you take unblocked damage equal to or greater than [blue]20%[/blue] of your max HP during your turn, gain [blue]1[/blue] [purple]Intangible[/purple] at the start of next turn.",
+	"RHINE_DOLL.title": "Rhine Doll",
+	"RHINE_DOLL.flavor": "Balance of energy and damage.",
+	"RHINE_DOLL.description": "At combat start, attack damage is increased by [blue]10%[/blue].\nAt the start of your turn, gain {Energy:energyIcons()}.\nIf you end your turn with [red]0[/red] {Energy:energyIcons()}, attack damage is increased by an additional [blue]50%[/blue] next turn."
 }

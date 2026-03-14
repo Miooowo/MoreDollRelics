@@ -38,8 +38,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -63,8 +71,7 @@
               "RelativeToolTip": "src\\Relics\\wxwDoll.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvxoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T18:18:34.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-13T18:18:34.018Z"
             },
             {
               "$type": "Document",
@@ -76,8 +83,7 @@
               "RelativeToolTip": "src\\Relics\\BaizealerDoll.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvxkAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T18:18:19.776Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-13T18:18:19.776Z"
             },
             {
               "$type": "Document",
@@ -89,8 +95,7 @@
               "RelativeToolTip": "scripts\\entry.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T18:17:14.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-13T18:17:14.915Z"
             },
             {
               "$type": "Document",
@@ -102,16 +107,7 @@
               "RelativeToolTip": "src\\Relics\\VistaDoll.cs",
               "ViewState": "AgIAADIAAAAAAAAAAADgv0UAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T18:13:08.897Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2026-03-13T18:13:08.897Z"
             },
             {
               "$type": "Document",
@@ -123,21 +119,19 @@
               "RelativeToolTip": "src\\Patches\\DollRoomExtraDollsPatch.cs",
               "ViewState": "AgIAAFgAAAAAAAAAAAAawGYAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T18:10:38.351Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-13T18:10:38.351Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "MoreDollRelics",
+              "Title": "MoreDollRelics.csproj",
               "DocumentMoniker": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\MoreDollRelics.csproj",
               "RelativeDocumentMoniker": "MoreDollRelics.csproj",
               "ToolTip": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\MoreDollRelics.csproj",
               "RelativeToolTip": "MoreDollRelics.csproj",
               "ViewState": "AgIAAAEAAAAAAAAAAAAQwAsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-13T18:10:51.849Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-13T18:10:51.849Z"
             }
           ]
         }

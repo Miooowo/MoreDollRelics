@@ -13,7 +13,7 @@
 	"NEW_DOLL_ROOM.pages.EXAMINE.description": "在做出决定之前，你仔细审视了这里的每一尊玩偶。\n\n那些大叫声已变成了[red][jitter]刺耳的强音[/jitter][/red]，但你还是在彻底陷入疯狂之前，设法做出了选择！",
 	"NEW_DOLL_ROOM.pages.EXTRA.description": "你将注意力集中在三尊明显并非本房间“原住民”的玩偶身上。\n\n它们的气息既陌生，又莫名令人心动……",
 	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.title": "再看几个玩偶",
-	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.description": "失去[red]5[/red]点生命。然后可再查看[blue]2[/blue]尊[gold]玩偶遗物[/gold]。",
+	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.description": "失去[red]5[/red]点生命。重新随机上方选项中的玩偶。",
 	"NEW_DOLL_ROOM.pages.MORE.description": "你以鲜血为代价。昏暗中，还有两尊玩偶映入眼帘……",
 	"NEW_DOLL_ROOM.pages.TAKE.options.TAKE.description": "获得[gold]{RelicName}[/gold]。",
 
@@ -21,5 +21,6 @@
 	"NEW_DOLL_ROOM.pages.WXW_DOLL.description": "好似来自另一个纬度的[purple][i][jitter]玩偶[/jitter][/i][/purple]。\n总感觉这个形象在什么地方见到过，看着莫名的安心。\n[purple][i][jitter]时间、空间与纬度的交融让我们再次相见。[/jitter][/i][/purple]",
 	"NEW_DOLL_ROOM.pages.BAIZEALER_DOLL.description": "你能感觉到无数星光般的火花在玩偶体内悄然跃动。\n[blue][sine]“群星会为你应声。”[/sine][/blue]",
 	"NEW_DOLL_ROOM.pages.GALLOP_DOLL.description": "一尊仿佛随时会奔跑起来的玩偶。\n[gold]“和我一起跑。”[/gold]",
-	"NEW_DOLL_ROOM.pages.DOGKING_DOLL.description": "一尊颇有王者气度的玩偶。\n[gold]“汪。”[/gold]"
+	"NEW_DOLL_ROOM.pages.DOGKING_DOLL.description": "一尊颇有王者气度的玩偶。\n[gold]“汪。”[/gold]",
+	"NEW_DOLL_ROOM.pages.RHINE_DOLL.description": "一尊仿佛在权衡能量与伤害的玩偶。"
 }

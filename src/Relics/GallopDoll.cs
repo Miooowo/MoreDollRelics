@@ -53,6 +53,9 @@ public sealed class GallopDoll : RelicModel
 	{
 		if (target != Owner?.Creature || result.UnblockedDamage <= 0)
 			return;
+		// 仅战斗中生效：战斗外（事件掉血等）不触发“每损失5点回1点”
+		if (Owner.Creature.CombatState == null)
+			return;
 		int healAmount = result.UnblockedDamage / HpLostPerHealInCombat;
 		if (healAmount <= 0)
 			return;

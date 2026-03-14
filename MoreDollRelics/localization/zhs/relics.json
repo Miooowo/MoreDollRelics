@@ -6,12 +6,15 @@
 	"WXW_DOLL.flavor": "[purple][i][jitter]“请仔细阅读纬度手册！”[/jitter][/i][/purple]——王筱巫",
 	"WXW_DOLL.description": "当你要被杀死时，免死并回复生命至[green]1[/green]点，立即获得[blue]999[/blue]点格挡，本场战斗中每回合开始获得[blue]99[/blue]点格挡（仅能生效一次）",
 	"BAIZEALER_DOLL.title": "絔狼玩偶",
-	"BAIZEALER_DOLL.flavor": "星辰们会随你闪耀。",
+	"BAIZEALER_DOLL.flavor": "[aqua]“星辰们会随你闪耀。”[/aqua]",
 	"BAIZEALER_DOLL.description": "每场战斗开始时，获得[blue]6[/blue]点荆棘。\n每受到一次攻击，随机对敌人造成[red]1[/red]点伤害[blue]6[/blue]次。",
 	"GALLOP_DOLL.title": "加洛普玩偶",
 	"GALLOP_DOLL.flavor": "“和我一起跑。”",
 	"GALLOP_DOLL.description": "战斗开始时，每损失[blue]20%[/blue]生命获得[blue]1[/blue]点[red]力量[/red]。\n战斗中每损失[blue]5[/blue]点生命回复[green]1[/green]点生命。\n战斗结束时回复[green]3[/green]点生命。",
 	"DOGKING_DOLL.title": "狗王玩偶",
 	"DOGKING_DOLL.flavor": "饿死本狗王了，俺要吃饭汪。”",
-	"DOGKING_DOLL.description": "你的回合开始时，恢复[green]1[/green]点生命并获得[blue]2[/blue]点格挡。\n在你的回合内受到一次不低于生命值上限[blue]20%[/blue]的伤害时，下回合开始获得[blue]1[/blue]层[purple]无实体[/purple]。"
+	"DOGKING_DOLL.description": "你的回合开始时，恢复[green]1[/green]点生命并获得[blue]2[/blue]点格挡。\n在你的回合内受到一次不低于生命值上限[blue]20%[/blue]的伤害时，下回合开始获得[blue]1[/blue]层[purple]无实体[/purple]。",
+	"RHINE_DOLL.title": "莱茵玩偶",
+	"RHINE_DOLL.flavor": "能量与伤害的平衡。",
+	"RHINE_DOLL.description": "战斗开始时，攻击伤害增加[blue]10%[/blue]。\n你的回合开始时，获得{Energy:energyIcons()}。\n若回合结束时{Energy:energyIcons()}为[red]0[/red]，下回合攻击伤害额外增加[blue]50%[/blue]。"
 }

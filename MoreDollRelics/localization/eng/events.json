@@ -13,7 +13,7 @@
 	"NEW_DOLL_ROOM.pages.EXAMINE.description": "You examine each and every doll before you make your choice.\n\nThe shouting has reached a [red][jitter]piercing crescendo[/jitter][/red] but you manage to make a choice before going completely mad!",
 	"NEW_DOLL_ROOM.pages.EXTRA.description": "You focus on three dolls that clearly do not belong to this room.\n\nTheir presence feels foreign, yet oddly compelling...",
 	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.title": "see more dolls",
-	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.description": "Lose [red]5[/red] HP. Then look at [blue]2[/blue] more [gold]doll relics[/gold].",
+	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.description": "Lose [red]5[/red] HP. Refresh the options.",
 	"NEW_DOLL_ROOM.pages.MORE.description": "You pay the price in blood. In the dim light, two more dolls catch your eye...",
 	"NEW_DOLL_ROOM.pages.TAKE.options.TAKE.description": "Receive [gold]{RelicName}[/gold].",
 
@@ -21,5 +21,6 @@
 	"NEW_DOLL_ROOM.pages.WXW_DOLL.description": "A [purple][i][jitter]doll[/jitter][/i][/purple] from another dimension.\nIt feels familiar, yet strangely comforting.\n[purple][i][jitter]Time, space, and dimension have brought us together again.[/jitter][/i][/purple]",
 	"NEW_DOLL_ROOM.pages.BAIZEALER_DOLL.description": "You feel countless starlike sparks pulsing from within the doll.\n[blue][sine]“The stars will answer.”[/sine][/blue]",
 	"NEW_DOLL_ROOM.pages.GALLOP_DOLL.description": "A doll that seems ready to run at any moment.\n[gold]“Run with me.”[/gold]",
+	"NEW_DOLL_ROOM.pages.RHINE_DOLL.description": "A doll that seems to weigh energy and damage in the balance.",
 	"NEW_DOLL_ROOM.pages.DOGKING_DOLL.description": "A dignified doll with a kingly air.\n[gold]“Woof.”[/gold]"
 }
