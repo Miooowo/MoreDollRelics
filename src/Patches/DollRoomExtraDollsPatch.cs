@@ -164,7 +164,7 @@ internal static class DollRoomExtraDollsPatch
     private const int MoreDollsHpCost = 5;
     private const int ModDollsShownCount = 3;
 
-    /// <summary>模组玩偶池：5 个玩偶，用于随机抽 3 个展示。</summary>
+    /// <summary>模组玩偶池：7 个玩偶，用于随机抽 3 个展示。</summary>
     private static readonly (RelicModel relic, string descriptionKey)[] ModDollPool =
     {
         (ModelDb.Relic<VistaDoll>(), "NEW_DOLL_ROOM.pages.VISTA_DOLL.description"),
@@ -173,6 +173,7 @@ internal static class DollRoomExtraDollsPatch
         (ModelDb.Relic<GallopDoll>(), "NEW_DOLL_ROOM.pages.GALLOP_DOLL.description"),
         (ModelDb.Relic<DogkingDoll>(), "NEW_DOLL_ROOM.pages.DOGKING_DOLL.description"),
         (ModelDb.Relic<RhineDoll>(), "NEW_DOLL_ROOM.pages.RHINE_DOLL.description"),
+        (ModelDb.Relic<PansyDoll>(), "NEW_DOLL_ROOM.pages.PANSY_DOLL.description"),
     };
 
     /// <summary>

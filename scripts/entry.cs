@@ -24,5 +24,6 @@ public class Entry
 		ModHelper.AddModelToPool<SharedRelicPool, GallopDoll>();
 		ModHelper.AddModelToPool<SharedRelicPool, DogkingDoll>();
 		ModHelper.AddModelToPool<SharedRelicPool, RhineDoll>();
+		ModHelper.AddModelToPool<SharedRelicPool, PansyDoll>();
 	}
 }

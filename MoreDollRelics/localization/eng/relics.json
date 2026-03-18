@@ -16,5 +16,8 @@
 	"DOGKING_DOLL.description": "At the start of your turn, heal [green]1[/green] HP and gain [blue]2[/blue] Block. \nWhen you take unblocked damage equal to or greater than [blue]20%[/blue] of your max HP during your turn, gain [blue]1[/blue] [purple]Intangible[/purple] at the start of next turn.",
 	"RHINE_DOLL.title": "Rhine Doll",
 	"RHINE_DOLL.flavor": "Balance of energy and damage.",
-	"RHINE_DOLL.description": "At combat start, attack damage is increased by [blue]10%[/blue].\nAt the start of your turn, gain {Energy:energyIcons()}.\nIf you end your turn with [red]0[/red] {Energy:energyIcons()}, attack damage is increased by an additional [blue]50%[/blue] next turn."
+	"RHINE_DOLL.description": "At combat start, attack damage is increased by [blue]10%[/blue].\nAt the start of your turn, gain {Energy:energyIcons()}.\nIf you end your turn with [red]0[/red] {Energy:energyIcons()}, attack damage is increased by an additional [blue]50%[/blue] next turn.",
+	"PANSY_DOLL.title": "Pansy Doll",
+	"PANSY_DOLL.flavor": "The shadow of the first card each turn.",
+	"PANSY_DOLL.description": "Put a [gold]exhausted[/gold] copy of the first card you play each turn into your hand. That copy costs {Energy:energyIcons()} less for the rest of combat."
 }

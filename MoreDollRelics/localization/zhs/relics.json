@@ -16,5 +16,8 @@
 	"DOGKING_DOLL.description": "你的回合开始时，恢复[green]1[/green]点生命并获得[blue]2[/blue]点格挡。\n在你的回合内受到一次不低于生命值上限[blue]20%[/blue]的伤害时，下回合开始获得[blue]1[/blue]层[purple]无实体[/purple]。",
 	"RHINE_DOLL.title": "莱茵玩偶",
 	"RHINE_DOLL.flavor": "能量与伤害的平衡。",
-	"RHINE_DOLL.description": "战斗开始时，攻击伤害增加[blue]10%[/blue]。\n你的回合开始时，获得{Energy:energyIcons()}。\n若回合结束时{Energy:energyIcons()}为[red]0[/red]，下回合攻击伤害额外增加[blue]50%[/blue]。"
+	"RHINE_DOLL.description": "战斗开始时，攻击伤害增加[blue]10%[/blue]。\n你的回合开始时，获得{Energy:energyIcons()}。\n若回合结束时{Energy:energyIcons()}为[red]0[/red]，下回合攻击伤害额外增加[blue]50%[/blue]。",
+	"PANSY_DOLL.title": "三色堇玩偶",
+	"PANSY_DOLL.flavor": "每回合第一张牌的影子。",
+	"PANSY_DOLL.description": "将你每回合打出的第一张牌的一张[gold]消耗[/gold]复制品放入手牌，该复制品本场战斗中费用减少{Energy:energyIcons()}。"
 }

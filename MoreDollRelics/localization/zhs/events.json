@@ -19,8 +19,9 @@
 
 	"NEW_DOLL_ROOM.pages.VISTA_DOLL.description": "这只[gold]熟悉的玩偶[/gold]本是不存在的。\n而当你对着那团空气伸出手时，它又被你抓在手里。\n[gold]“别弄掉了我的帽子！”[/gold]\n你似乎想起来了和一个[gold]熟悉的人[/gold]交易过的故事。",
 	"NEW_DOLL_ROOM.pages.WXW_DOLL.description": "好似来自另一个纬度的[purple][i][jitter]玩偶[/jitter][/i][/purple]。\n总感觉这个形象在什么地方见到过，看着莫名的安心。\n[purple][i][jitter]时间、空间与纬度的交融让我们再次相见。[/jitter][/i][/purple]",
-	"NEW_DOLL_ROOM.pages.BAIZEALER_DOLL.description": "你能感觉到无数星光般的火花在玩偶体内悄然跃动。\n[blue][sine]“群星会为你应声。”[/sine][/blue]",
+	"NEW_DOLL_ROOM.pages.BAIZEALER_DOLL.description": "捡起来了这尊毛绒绒的玩偶，它的眼睛中隐约[aqua]闪烁着不息的星光。[/aqua]\n[blue]“辰星们…会随你一同飞往旅途的终点。”[/blue]",
 	"NEW_DOLL_ROOM.pages.GALLOP_DOLL.description": "一尊仿佛随时会奔跑起来的玩偶。\n[gold]“和我一起跑。”[/gold]",
 	"NEW_DOLL_ROOM.pages.DOGKING_DOLL.description": "一尊颇有王者气度的玩偶。\n[gold]“汪。”[/gold]",
-	"NEW_DOLL_ROOM.pages.RHINE_DOLL.description": "一尊仿佛在权衡能量与伤害的玩偶。"
+	"NEW_DOLL_ROOM.pages.RHINE_DOLL.description": "一尊仿佛在权衡能量与伤害的玩偶。",
+	"NEW_DOLL_ROOM.pages.PANSY_DOLL.description": "一尊像三色堇一样安静的玩偶，花瓣般的色彩。"
 }
