@@ -46,7 +46,7 @@ public sealed class GallopDoll : RelicModel
 		if (strengthGain <= 0)
 			return;
 		Flash();
-		await PowerCmd.Apply<StrengthPower>(creature, (decimal)strengthGain, creature, null);
+		await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), creature, (decimal)strengthGain, creature, null);
 	}
 
 	public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)

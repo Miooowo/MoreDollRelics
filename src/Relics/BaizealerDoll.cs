@@ -32,7 +32,7 @@ public sealed class BaizealerDoll : RelicModel
 		if (Owner?.Creature == null)
 			return;
 		Flash();
-		await PowerCmd.Apply<ThornsPower>(Owner.Creature, ThornsAmount, Owner.Creature, null);
+		await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, ThornsAmount, Owner.Creature, null);
 	}
 
 	public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)

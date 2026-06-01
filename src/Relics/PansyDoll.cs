@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -68,12 +69,12 @@ public sealed class PansyDoll : RelicModel
 		CardModel copy = cardPlay.Card.CreateClone();
 		copy.EnergyCost.AddThisCombat(-CostReduceThisCombat, reduceOnly: true);
 		CardCmd.ApplyKeyword(copy, CardKeyword.Exhaust);
-		await CardPileCmd.AddGeneratedCardToCombat(copy, PileType.Hand, addedByPlayer: true);
+		await CardPileCmd.AddGeneratedCardToCombat(copy, PileType.Hand, Owner);
 		WasUsedThisTurn = true;
 		CardBeingPlayed = null;
 	}
 
-	public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
+	public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
 	{
 		if (side != Owner?.Creature?.Side)
 			return Task.CompletedTask;

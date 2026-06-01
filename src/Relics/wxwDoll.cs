@@ -62,7 +62,7 @@ public sealed class wxwDoll : RelicModel
 		await CreatureCmd.GainBlock(creature, 999m, ValueProp.Unpowered, null);
 	}
 
-	public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+	public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
 	{
 		if (side != Owner.Creature.Side || !_triggeredThisCombat)
 			return;

@@ -6,6 +6,20 @@
 
 ---
 
+## [v0.3.0-beta 2026-06-01]
+
+基于 v0.3.0，适配较新游戏版本的 API（`beta` 分支预发布）。
+
+### 修复 (Fixed)
+- 适配新版 `sts2` 战斗钩子：`BeforeSideTurnEnd` / `AfterSideTurnEnd`、`BeforeSideTurnStart`、`AfterSideTurnStart` 等签名变更。
+- `PowerCmd.Apply` 需传入 `PlayerChoiceContext`；`CardPileCmd.AddGeneratedCardToCombat` 改为传入 `Player` 创建者。
+- 补充 `ModPck` Godot 导出预设，修复 `dotnet build` 时 `.pck` 打包失败。
+
+### 说明
+- 本预发布面向已更新至较新版本的《杀戮尖塔 2》；稳定版请使用 [v0.3.0](https://github.com/Miooowo/MoreDollRelics/releases/tag/v0.3.0)。
+
+---
+
 ## [v0.3.0 2026-03-18]
 
 ### 新增 (Added)

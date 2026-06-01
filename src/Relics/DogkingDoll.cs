@@ -48,7 +48,7 @@ public sealed class DogkingDoll : RelicModel
 		{
 			_grantIntangibleNextTurn = false;
 			Flash();
-			await PowerCmd.Apply<IntangiblePower>(creature, 1m, creature, null);
+			await PowerCmd.Apply<IntangiblePower>(choiceContext, creature, 1m, creature, null);
 		}
 	}
 

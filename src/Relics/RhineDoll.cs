@@ -65,12 +65,12 @@ public sealed class RhineDoll : RelicModel
 		{
 			_grantBonusDamageNextTurn = false;
 			Flash();
-			await PowerCmd.Apply<RhinePower>(Owner.Creature, 1m, Owner.Creature, null);
+			await PowerCmd.Apply<RhinePower>(choiceContext, Owner.Creature, 1m, Owner.Creature, null);
 		}
 	}
 
 	/// <summary>回合结束前记录本回合是否能量耗尽，用于下回合 +50% 伤害。</summary>
-	public override Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+	public override Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
 	{
 		if (Owner?.Creature == null || side != CombatSide.Player)
 			return Task.CompletedTask;
