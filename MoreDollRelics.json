@@ -4,7 +4,7 @@
   "name": "MoreDollRelics",
   "author": "ClockCycas",
   "description": "More Doll Relics mod",
-  "version": "v0.4.0-beta",
+  "version": "v0.5-beta",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [],

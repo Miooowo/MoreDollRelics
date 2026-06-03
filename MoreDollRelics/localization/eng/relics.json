@@ -27,5 +27,9 @@
 
 	"I_ZERO_DOLL.title": "Moonlit Zero Doll",
 	"I_ZERO_DOLL.flavor": "[aqua]Between zero and one, under the moon.[/aqua]",
-	"I_ZERO_DOLL.description": "At the start of turn [blue]{NovaTurn}[/blue], deal [red]{NovaDamage}[/red] damage to ALL enemies.\nStarting that same turn, at the start of each turn, add a [gold]Power[/gold] of a [blue]random[/blue] card color ([blue]Colorless included[/blue]) that costs {Energy:energyIcons()} to your hand.\nFor every [blue]{PowersPerEcho}[/blue] [gold]Power[/gold] cards you play, [blue]play one again[/blue]."
+	"I_ZERO_DOLL.description": "At the start of turn [blue]{NovaTurn}[/blue], deal [red]{NovaDamage}[/red] damage to ALL enemies.\nStarting that same turn, at the start of each turn, add a [gold]Power[/gold] of a [blue]random[/blue] card color ([blue]Colorless included[/blue]) that costs {Energy:energyIcons()} to your hand.\nFor every [blue]{PowersPerEcho}[/blue] [gold]Power[/gold] cards you play, [blue]play one again[/blue].",
+
+	"WILISHA_DOLL.title": "Wilisha Doll",
+	"WILISHA_DOLL.flavor": "[red]\"On the tenth strike, it's time to collect.\"[/red]",
+	"WILISHA_DOLL.description": "For every [blue]{Attacks}[/blue] [gold]Attack[/gold] cards you play, deal [red]{Damage}[/red] damage to a random enemy and it loses [red]{HpLoss}[/red] HP."
 }

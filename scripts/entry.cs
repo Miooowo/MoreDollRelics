@@ -27,5 +27,6 @@ public class Entry
 		ModHelper.AddModelToPool<SharedRelicPool, PansyDoll>();
 		ModHelper.AddModelToPool<SharedRelicPool, SupercatballAG178>();
 		ModHelper.AddModelToPool<SharedRelicPool, IZeroDoll>();
+		ModHelper.AddModelToPool<SharedRelicPool, WilishaDoll>();
 	}
 }

@@ -27,5 +27,9 @@
 
 	"I_ZERO_DOLL.title": "月夜零玩偶",
 	"I_ZERO_DOLL.flavor": "[aqua]月光下，零与一之间。[/aqua]",
-	"I_ZERO_DOLL.description": "第[blue]{NovaTurn}[/blue]回合开始时，对所有敌人造成[red]{NovaDamage}[/red]点伤害。\n第四个回合开始后，每回合将一张费用为3{Energy:energyIcons()}的随机颜色或无色的[gold]能力牌[/gold]放入你的手牌。\n每打出[blue]{PowersPerEcho}[/blue]张[gold]能力牌[/gold]，额外打出一次。"
+	"I_ZERO_DOLL.description": "第[blue]{NovaTurn}[/blue]回合开始时，对所有敌人造成[red]{NovaDamage}[/red]点伤害。\n第四个回合开始后，每回合将一张费用为3{Energy:energyIcons()}的随机颜色或无色的[gold]能力牌[/gold]放入你的手牌。\n每打出[blue]{PowersPerEcho}[/blue]张[gold]能力牌[/gold]，额外打出一次。",
+
+	"WILISHA_DOLL.title": "薇莉莎玩偶",
+	"WILISHA_DOLL.flavor": "[red]「第十击，该清算利息了。」[/red]",
+	"WILISHA_DOLL.description": "每打出[blue]{Attacks}[/blue]张[gold]攻击牌[/gold]，对随机敌人造成[red]{Damage}[/red]点伤害，并[red]扣除[/red]其[red]{HpLoss}[/red]点生命。"
 }

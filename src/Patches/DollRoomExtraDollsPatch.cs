@@ -22,6 +22,13 @@ namespace MoreDollRelics.src.Patches;
 [HarmonyPatch(typeof(DollRoom))]
 internal static class DollRoomExtraDollsPatch
 {
+	[HarmonyPostfix]
+	[HarmonyPatch("BeforeEventStarted")]
+	private static void BeforeEventStarted_ResetModDollRollHistory()
+	{
+		DollRoomModDollRollTracker.Reset();
+	}
+
     private static readonly MethodInfo SetEventStateMethod =
         AccessTools.Method(typeof(EventModel), "SetEventState", new[] { typeof(LocString), typeof(IReadOnlyList<EventOption>) });
 
@@ -76,9 +83,11 @@ internal static class DollRoomExtraDollsPatch
             return;
         var pool = new List<(RelicModel relic, string descriptionKey)>(VanillaDollPool.Length + ModDollPool.Length);
         pool.AddRange(VanillaDollPool);
-        pool.AddRange(ModDollPool);
+        pool.AddRange(GetEligibleModDolls());
         Rng rng = dollRoom.Owner.RunState?.Rng?.Niche ?? Rng.Chaotic;
         var chosen = rng.NextItem(pool);
+        if (IsModDoll(chosen.relic))
+            DollRoomModDollRollTracker.Record(chosen.relic);
         await RelicCmd.Obtain(chosen.relic.ToMutable(), dollRoom.Owner);
         var done = new LocString("events", chosen.descriptionKey);
         SetEventFinishedMethod.Invoke(dollRoom, new object[] { done });
@@ -98,7 +107,7 @@ internal static class DollRoomExtraDollsPatch
 
         var combined = new List<(RelicModel relic, string descriptionKey)>(VanillaDollPool.Length + ModDollPool.Length);
         combined.AddRange(VanillaDollPool);
-        combined.AddRange(ModDollPool);
+        combined.AddRange(GetEligibleModDolls());
 
         Rng rng = dollRoom.Owner.RunState?.Rng?.Niche ?? Rng.Chaotic;
         var indices = new List<int>(combined.Count);
@@ -111,6 +120,8 @@ internal static class DollRoomExtraDollsPatch
         for (int i = 0; i < take; i++)
         {
             var (relic, doneKey) = combined[indices[i]];
+            if (IsModDoll(relic))
+                DollRoomModDollRollTracker.Record(relic);
             options.Add(MakeTakeOption(dollRoom, relic, doneKey, useVanillaOptionText: true));
         }
 
@@ -167,7 +178,7 @@ internal static class DollRoomExtraDollsPatch
     private const int MoreDollsHpCost = 5;
     private const int ModDollsShownCount = 3;
 
-    /// <summary>模组玩偶池：9 个玩偶，用于随机抽 3 个展示。</summary>
+    /// <summary>模组玩偶池，用于随机展示；同一遗物连续两轮出现后第三轮不再入选。</summary>
     private static readonly (RelicModel relic, string descriptionKey)[] ModDollPool =
     {
         (ModelDb.Relic<VistaDoll>(), "NEW_DOLL_ROOM.pages.VISTA_DOLL.description"),
@@ -179,6 +190,7 @@ internal static class DollRoomExtraDollsPatch
         (ModelDb.Relic<PansyDoll>(), "NEW_DOLL_ROOM.pages.PANSY_DOLL.description"),
         (ModelDb.Relic<SupercatballAG178>(), "NEW_DOLL_ROOM.pages.SUPERCATBALL_A_G178.description"),
         (ModelDb.Relic<IZeroDoll>(), "NEW_DOLL_ROOM.pages.I_ZERO_DOLL.description"),
+        (ModelDb.Relic<WilishaDoll>(), "NEW_DOLL_ROOM.pages.WILISHA_DOLL.description"),
     };
 
     /// <summary>
@@ -234,16 +246,12 @@ internal static class DollRoomExtraDollsPatch
             rng = Rng.Chaotic;
         }
 
-        var indices = new List<int>(ModDollPool.Length);
-        for (int i = 0; i < ModDollPool.Length; i++)
-            indices.Add(i);
-        indices.UnstableShuffle(rng);
+        var pickedIndices = PickModDollIndices(ModDollsShownCount, rng);
 
         var options = new List<EventOption>();
-        int take = System.Math.Min(ModDollsShownCount, ModDollPool.Length);
-        for (int i = 0; i < take; i++)
+        foreach (int index in pickedIndices)
         {
-            var (relic, descriptionKey) = ModDollPool[indices[i]];
+            var (relic, descriptionKey) = ModDollPool[index];
             options.Add(MakeTakeOption(dollRoom, relic, descriptionKey));
         }
 
@@ -283,6 +291,36 @@ internal static class DollRoomExtraDollsPatch
                 HoverTipFactory.FromRelic(relic)
             )
             .WithOverridenHistoryName(relic.Title);
+    }
+
+    private static bool IsModDoll(RelicModel relic) =>
+        ModDollPool.Any(entry => entry.relic.Id == relic.Id);
+
+    private static IEnumerable<(RelicModel relic, string descriptionKey)> GetEligibleModDolls()
+    {
+        foreach (var entry in ModDollPool)
+        {
+            if (!DollRoomModDollRollTracker.IsBlockedThirdConsecutive(entry.relic))
+                yield return entry;
+        }
+    }
+
+    /// <summary>无放回随机选取模组玩偶索引，并写入展示历史。</summary>
+    private static List<int> PickModDollIndices(int count, Rng rng)
+    {
+        var eligible = new List<int>();
+        for (int i = 0; i < ModDollPool.Length; i++)
+        {
+            if (!DollRoomModDollRollTracker.IsBlockedThirdConsecutive(ModDollPool[i].relic))
+                eligible.Add(i);
+        }
+
+        eligible.UnstableShuffle(rng);
+        int take = System.Math.Min(count, eligible.Count);
+        var picked = eligible.Take(take).ToList();
+        foreach (int index in picked)
+            DollRoomModDollRollTracker.Record(ModDollPool[index].relic);
+        return picked;
     }
 }
 
