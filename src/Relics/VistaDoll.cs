@@ -13,10 +13,11 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 namespace MoreDollRelics.src.Relics;
 
 /// <summary>
-/// 薇斯塔玩偶：商店折扣30%，进入商店时每20金币回复1点生命值，战胜敌人获得的金币翻倍。
+/// 薇斯塔玩偶：商店折扣30%，进入商店时每20金币回复1点生命值，战胜敌人获得的金币翻倍；
+/// 玩偶「离开」时获得当前金币10%的金币；激活时在商店移除卡牌返还所支付的金币。
 /// 传送设定：拥有时第一次进入商店生效，离开后直到第二次进入商店前都完全失效；第二次进入时重新激活并执行回血效果，如此循环。
 /// </summary>
-public sealed class VistaDoll : RelicModel
+public sealed class VistaDoll : RelicModel, IDollRelic
 {
 	private const string _discountKey = "Discount";
 	private const decimal DiscountPercent = 30m;
@@ -54,6 +55,17 @@ public sealed class VistaDoll : RelicModel
 		return player == Owner && IsActive;
 	}
 
+	/// <summary>商店付费移除卡牌成功后：返还本次实际支付的金币（含折扣后的数额）。</summary>
+	public override async Task AfterItemPurchased(Player player, MerchantEntry itemPurchased, int goldSpent)
+	{
+		if (player != Owner || !IsActive || goldSpent <= 0)
+			return;
+		if (itemPurchased is not MerchantCardRemovalEntry)
+			return;
+		Flash();
+		await PlayerCmd.GainGold(goldSpent, player);
+	}
+
 	public override async Task AfterRoomEntered(AbstractRoom room)
 	{
 		if (Owner?.Creature == null || Owner.Creature.IsDead)
@@ -84,8 +96,15 @@ public sealed class VistaDoll : RelicModel
 		{
 			if (MerchantIndex % 2 == 1)
 			{
+				int goldBeforeLeave = Owner.Gold;
 				IsActive = false;
 				Status = RelicStatus.Disabled;
+				int bonus = (int)System.Math.Floor(goldBeforeLeave * 0.1m);
+				if (bonus > 0)
+				{
+					Flash();
+					await PlayerCmd.GainGold(bonus, Owner);
+				}
 			}
 			else
 			{

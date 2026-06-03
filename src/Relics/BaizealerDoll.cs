@@ -17,7 +17,7 @@ namespace MoreDollRelics.src.Relics;
 /// <summary>
 /// 絔狼玩偶：每场战斗开始时获得6点荆棘；每受到一次攻击，随机对敌人造成1点伤害6次。
 /// </summary>
-public sealed class BaizealerDoll : RelicModel
+public sealed class BaizealerDoll : RelicModel, IDollRelic
 {
 	private const decimal ThornsAmount = 6m;
 	private const int HitsPerAttack = 6;

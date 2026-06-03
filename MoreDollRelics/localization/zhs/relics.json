@@ -1,7 +1,7 @@
 {
 	"VISTA_DOLL.title": "薇斯塔玩偶",
 	"VISTA_DOLL.flavor": "[gold]“别弄掉了我的帽子！”[/gold]",
-	"VISTA_DOLL.description": "商店折扣[blue]30%[/blue]。\n进入商店时每[gold]20[/gold]金币回复[blue]1[/blue]点生命值。\n战胜敌人获得的金币翻倍。\n[red]嘿，看好你的玩偶！[/red]",
+	"VISTA_DOLL.description": "商店折扣[blue]30%[/blue]。\n进入商店时每[gold]20[/gold]金币回复[blue]1[/blue]点生命值。\n战胜敌人获得的金币翻倍。\n玩偶离开时，获得当前金币[blue]10%[/blue]的金币。\n激活期间，在商店移除卡牌时返还所支付的金币。\n[red]嘿，看好你的玩偶！[/red]",
 	"WXW_DOLL.title": "王筱巫玩偶",
 	"WXW_DOLL.flavor": "[purple][i][jitter]“请仔细阅读纬度手册！”[/jitter][/i][/purple]——王筱巫",
 	"WXW_DOLL.description": "当你要被杀死时，免死并回复生命至[green]1[/green]点，立即获得[blue]999[/blue]点格挡，本场战斗中每回合开始获得[blue]99[/blue]点格挡（仅能生效一次）",
@@ -13,11 +13,19 @@
 	"GALLOP_DOLL.description": "战斗开始时，每损失[blue]20%[/blue]生命获得[blue]1[/blue]点[red]力量[/red]。\n战斗中每损失[blue]5[/blue]点生命回复[green]1[/green]点生命。\n战斗结束时回复[green]3[/green]点生命。",
 	"DOGKING_DOLL.title": "狗王玩偶",
 	"DOGKING_DOLL.flavor": "饿死本狗王了，俺要吃饭汪。”",
-	"DOGKING_DOLL.description": "你的回合开始时，恢复[green]1[/green]点生命并获得[blue]2[/blue]点格挡。\n在你的回合内受到一次不低于生命值上限[blue]20%[/blue]的伤害时，下回合开始获得[blue]1[/blue]层[purple]无实体[/purple]。",
+	"DOGKING_DOLL.description": "拾起时失去[red]3[/red]点生命上限。\n你的回合开始时，恢复[green]1[/green]点生命并获得[blue]2[/blue]点格挡。\n在敌人回合内受到一次不低于生命值上限[blue]20%[/blue]的伤害时，下回合开始获得[blue]1[/blue]层[purple]无实体[/purple]。",
 	"RHINE_DOLL.title": "莱茵玩偶",
 	"RHINE_DOLL.flavor": "能量与伤害的平衡。",
 	"RHINE_DOLL.description": "战斗开始时，攻击伤害增加[blue]10%[/blue]。\n你的回合开始时，获得{Energy:energyIcons()}。\n若回合结束时{Energy:energyIcons()}为[red]0[/red]，下回合攻击伤害额外增加[blue]50%[/blue]。",
 	"PANSY_DOLL.title": "三色堇玩偶",
-	"PANSY_DOLL.flavor": "每回合第一张牌的影子。",
-	"PANSY_DOLL.description": "将你每回合打出的第一张牌的一张[gold]消耗[/gold]复制品放入手牌，该复制品本场战斗中费用减少{Energy:energyIcons()}。"
+	"PANSY_DOLL.flavor": "战斗里前三道影子。",
+	"PANSY_DOLL.description": "战斗中前[blue]3[/blue]个回合，每回合打出的第[blue]1[/blue]张牌生成一张[gold]消耗[/gold]复制品放入抽牌堆，这些复制品在本场战斗中费用减少{Energy:energyIcons()}。",
+
+	"SUPERCATBALL_A_G178.title": "娜娜因猫球",
+	"SUPERCATBALL_A_G178.flavor": "[aqua]咕噜……充能中。[/aqua]",
+	"SUPERCATBALL_A_G178.description": "战斗开始时，[gold]生成[/gold]一个[gold]等离子充能[/gold]球。\n每花费{Energy:energyIcons()}，获得[blue]{BlockPerEnergy}[/blue]点格挡。",
+
+	"I_ZERO_DOLL.title": "月夜零玩偶",
+	"I_ZERO_DOLL.flavor": "[aqua]月光下，零与一之间。[/aqua]",
+	"I_ZERO_DOLL.description": "第[blue]{NovaTurn}[/blue]回合开始时，对所有敌人造成[red]{NovaDamage}[/red]点伤害。\n第四个回合开始后，每回合将一张费用为3{Energy:energyIcons()}的随机颜色或无色的[gold]能力牌[/gold]放入你的手牌。\n每打出[blue]{PowersPerEcho}[/blue]张[gold]能力牌[/gold]，额外打出一次。"
 }

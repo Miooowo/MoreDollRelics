@@ -15,14 +15,15 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace MoreDollRelics.src.Relics;
 
 /// <summary>
-/// 狗王玩偶：你的回合开始时，恢复1生命值并获得2点格挡。
-/// 在你的回合内受到一次不低于生命值上限20%的伤害时，下回合开始获得1层无实体。
+/// 狗王玩偶：拾起时失去3点生命上限；回合开始时恢复1生命并获得2格挡；
+/// 在敌人回合内受到一次不低于生命上限20%的未格挡伤害时，下回合开始获得1层无实体。
 /// </summary>
-public sealed class DogkingDoll : RelicModel
+public sealed class DogkingDoll : RelicModel, IDollRelic
 {
 	private const decimal HealPerTurn = 1m;
 	private const decimal BlockPerTurn = 2m;
 	private const decimal BigDamageThresholdPercent = 0.2m;
+	private const decimal MaxHpLossOnObtain = 3m;
 
 	private bool _grantIntangibleNextTurn;
 
@@ -30,10 +31,19 @@ public sealed class DogkingDoll : RelicModel
 
 	protected override IEnumerable<DynamicVar> CanonicalVars => new[]
 	{
+		new DynamicVar("PickupMaxHpLoss", MaxHpLossOnObtain),
 		new DynamicVar("Heal", HealPerTurn),
 		new DynamicVar("Block", BlockPerTurn),
 		new DynamicVar("ThresholdPercent", BigDamageThresholdPercent * 100m)
 	};
+
+	public override async Task AfterObtained()
+	{
+		if (Owner?.Creature == null)
+			return;
+		Flash();
+		await CreatureCmd.LoseMaxHp(new BlockingPlayerChoiceContext(), Owner.Creature, MaxHpLossOnObtain, isFromCard: false);
+	}
 
 	public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
 	{
@@ -57,7 +67,7 @@ public sealed class DogkingDoll : RelicModel
 		if (target != Owner?.Creature || result.UnblockedDamage <= 0)
 			return Task.CompletedTask;
 		var combatState = Owner.Creature.CombatState;
-		if (combatState == null || combatState.CurrentSide != CombatSide.Player)
+		if (combatState == null || combatState.CurrentSide != CombatSide.Enemy)
 			return Task.CompletedTask;
 		decimal maxHp = Owner.Creature.MaxHp;
 		if (maxHp <= 0)

@@ -15,7 +15,7 @@ namespace MoreDollRelics.src.Relics;
 /// <summary>
 /// 加洛普玩偶：战斗开始时每损失20%生命获得1点力量；战斗中每损失5点生命回复1点生命；战斗结束时回复3点生命。
 /// </summary>
-public sealed class GallopDoll : RelicModel
+public sealed class GallopDoll : RelicModel, IDollRelic
 {
 	private const decimal HpLossPercentPerStrength = 0.2m;  // 每20%已损失生命获得1力量
 	private const int HpLostPerHealInCombat = 5;             // 战中每损失5点生命回复1点

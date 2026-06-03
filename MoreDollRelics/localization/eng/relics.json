@@ -1,7 +1,7 @@
 {
 	"VISTA_DOLL.title": "Vista Doll",
 	"VISTA_DOLL.flavor": "[gold]“Don't lose my hat!”[/gold]",
-	"VISTA_DOLL.description": "Store discount [blue]30%[/blue]. \nWhen you enter the store, recover [blue]1[/blue] HP per [gold]20[/gold] gold. \nGold from defeating enemies is doubled.\n [red]Hey, watch your doll![/red]",
+	"VISTA_DOLL.description": "Store discount [blue]30%[/blue]. \nWhen you enter the store, recover [blue]1[/blue] HP per [gold]20[/gold] gold. \nGold from defeating enemies is doubled.\nWhen the doll [i]leaves[/i], gain gold equal to [blue]10%[/blue] of your current gold.\nWhile active, removing a card at the shop refunds the gold you paid.\n[red]Hey, watch your doll![/red]",
 	"WXW_DOLL.title": "WXW Doll",
 	"WXW_DOLL.flavor": "[purple][i][jitter]\"Please read the dimension manual carefully!\"[/jitter][/i][/purple]--WXW",
 	"WXW_DOLL.description": "When you would die, heal [green]1[/green] HP and gain [blue]999[/blue] block. You gain [blue]99[/blue] block per turn.(work once per combat)",
@@ -13,11 +13,19 @@
 	"GALLOP_DOLL.description": "At the start of each combat, gain [blue]1[/blue] [red]Strength[/red] per [blue]20%[/blue] HP lost. \nWhenever you lose HP in combat, heal [green]1[/green] HP per [blue]5[/blue] HP lost. \nAt the end of each combat, heal [green]3[/green] HP.",
 	"DOGKING_DOLL.title": "Dogking Doll",
 	"DOGKING_DOLL.flavor": "\"I'm hungry. I want to eat. Woof!\"",
-	"DOGKING_DOLL.description": "At the start of your turn, heal [green]1[/green] HP and gain [blue]2[/blue] Block. \nWhen you take unblocked damage equal to or greater than [blue]20%[/blue] of your max HP during your turn, gain [blue]1[/blue] [purple]Intangible[/purple] at the start of next turn.",
+	"DOGKING_DOLL.description": "On pickup, lose [red]3[/red] Max HP.\nAt the start of your turn, heal [green]1[/green] HP and gain [blue]2[/blue] Block.\nWhen you take unblocked damage equal to or greater than [blue]20%[/blue] of your max HP during the enemy turn, gain [blue]1[/blue] [purple]Intangible[/purple] at the start of your next turn.",
 	"RHINE_DOLL.title": "Rhine Doll",
 	"RHINE_DOLL.flavor": "Balance of energy and damage.",
 	"RHINE_DOLL.description": "At combat start, attack damage is increased by [blue]10%[/blue].\nAt the start of your turn, gain {Energy:energyIcons()}.\nIf you end your turn with [red]0[/red] {Energy:energyIcons()}, attack damage is increased by an additional [blue]50%[/blue] next turn.",
 	"PANSY_DOLL.title": "Pansy Doll",
-	"PANSY_DOLL.flavor": "The shadow of the first card each turn.",
-	"PANSY_DOLL.description": "Put a [gold]exhausted[/gold] copy of the first card you play each turn into your hand. That copy costs {Energy:energyIcons()} less for the rest of combat."
+	"PANSY_DOLL.flavor": "Three shadows in each battle.",
+	"PANSY_DOLL.description": "During the first [blue]3[/blue] turns of combat, the [blue]first[/blue] card you play each turn creates an [gold]Exhaust[/gold] copy into your draw pile. Each copy costs {Energy:energyIcons()} less for the rest of this combat.",
+
+	"SUPERCATBALL_A_G178.title": "Nanain Catball",
+	"SUPERCATBALL_A_G178.flavor": "[aqua]Purr… charging up.[/aqua]",
+	"SUPERCATBALL_A_G178.description": "At the start of combat, [blue]Channel[/blue] a [blue]Plasma[/blue] Orb.\nWhenever you pay {Energy:energyIcons()} on a card, gain [blue]{BlockPerEnergy}[/blue] Block.",
+
+	"I_ZERO_DOLL.title": "Moonlit Zero Doll",
+	"I_ZERO_DOLL.flavor": "[aqua]Between zero and one, under the moon.[/aqua]",
+	"I_ZERO_DOLL.description": "At the start of turn [blue]{NovaTurn}[/blue], deal [red]{NovaDamage}[/red] damage to ALL enemies.\nStarting that same turn, at the start of each turn, add a [gold]Power[/gold] of a [blue]random[/blue] card color ([blue]Colorless included[/blue]) that costs {Energy:energyIcons()} to your hand.\nFor every [blue]{PowersPerEcho}[/blue] [gold]Power[/gold] cards you play, [blue]play one again[/blue]."
 }
