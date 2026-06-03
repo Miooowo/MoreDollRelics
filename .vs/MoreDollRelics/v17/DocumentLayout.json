@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1CDBC877-C38C-4CDA-83D7-112FC36B72E8}|MoreDollRelics.csproj|c:\\users\\miooo\\documents\\moredollrelics\\src\\relics\\pansydoll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CDBC877-C38C-4CDA-83D7-112FC36B72E8}|MoreDollRelics.csproj|solutionrelative:src\\relics\\pansydoll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1CDBC877-C38C-4CDA-83D7-112FC36B72E8}|MoreDollRelics.csproj|c:\\users\\miooo\\documents\\moredollrelics\\moredollrelics.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{1CDBC877-C38C-4CDA-83D7-112FC36B72E8}|MoreDollRelics.csproj|solutionrelative:moredollrelics.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CDBC877-C38C-4CDA-83D7-112FC36B72E8}|MoreDollRelics.csproj|c:\\users\\miooo\\documents\\moredollrelics\\src\\relics\\pansydoll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CDBC877-C38C-4CDA-83D7-112FC36B72E8}|MoreDollRelics.csproj|solutionrelative:src\\relics\\pansydoll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CDBC877-C38C-4CDA-83D7-112FC36B72E8}|MoreDollRelics.csproj|c:\\users\\miooo\\documents\\moredollrelics\\src\\power\\rhine_power.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,7 +58,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PansyDoll.cs",
               "DocumentMoniker": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\src\\Relics\\PansyDoll.cs",
               "RelativeDocumentMoniker": "src\\Relics\\PansyDoll.cs",
@@ -67,19 +67,6 @@
               "ViewState": "AgIAAA4AAAAAAAAAAAAowCIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T00:55:58.726Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Rhine_Power.cs",
-              "DocumentMoniker": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\src\\Power\\Rhine_Power.cs",
-              "RelativeDocumentMoniker": "src\\Power\\Rhine_Power.cs",
-              "ToolTip": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\src\\Power\\Rhine_Power.cs",
-              "RelativeToolTip": "src\\Power\\Rhine_Power.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAADwvw0AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-14T21:46:26.475Z",
               "EditorCaption": ""
             },
             {
@@ -108,16 +95,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MoreDollRelics.csproj",
               "DocumentMoniker": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\MoreDollRelics.csproj",
               "RelativeDocumentMoniker": "MoreDollRelics.csproj",
               "ToolTip": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\MoreDollRelics.csproj",
               "RelativeToolTip": "MoreDollRelics.csproj",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCAAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCQAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-03-13T18:10:51.849Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Rhine_Power.cs",
+              "DocumentMoniker": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\src\\Power\\Rhine_Power.cs",
+              "RelativeDocumentMoniker": "src\\Power\\Rhine_Power.cs",
+              "ToolTip": "C:\\Users\\Miooo\\Documents\\MoreDollRelics\\src\\Power\\Rhine_Power.cs",
+              "RelativeToolTip": "src\\Power\\Rhine_Power.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvw0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T21:46:26.475Z"
             },
             {
               "$type": "Document",

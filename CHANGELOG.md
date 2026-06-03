@@ -19,7 +19,7 @@
 - 补充 `ModPck` Godot 导出预设，修复 `dotnet build` 时 `.pck` 打包失败。
 
 ### 说明
-- 本预发布面向已更新至较新版本的《杀戮尖塔 2》；稳定版请使用 [v0.4.0](https://github.com/Miooowo/MoreDollRelics/releases/tag/v0.4.0)（合并后发布）。
+- 本预发布面向已更新至较新版本的《杀戮尖塔 2》；稳定版请使用 [v0.4.0](https://github.com/Miooowo/MoreDollRelics/releases/tag/v0.4.0)。
 
 ---
 
