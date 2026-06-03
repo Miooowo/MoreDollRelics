@@ -11,6 +11,8 @@
 	"NEW_DOLL_ROOM.pages.INITIAL.options.EXTRA.title": "观察陌生的玩偶",
 	"NEW_DOLL_ROOM.pages.TAKE_SOME_TIME.description": "喧嚣之中，你飞快地审视着这些玩偶。\n\n这两尊里，或许有一尊是不错的选择？\n但在[red]精神的摧残[/red]下，你实在难以集中神志。",
 	"NEW_DOLL_ROOM.pages.EXAMINE.description": "在做出决定之前，你仔细审视了这里的每一尊玩偶。\n\n那些大叫声已变成了[red][jitter]刺耳的强音[/jitter][/red]，但你还是在彻底陷入疯狂之前，设法做出了选择！",
+	"NEW_DOLL_ROOM.pages.EXAMINE.options.MOD_DOLLS.title": "查看更具吸引力的玩偶",
+	"NEW_DOLL_ROOM.pages.EXAMINE.options.MOD_DOLLS.description": "失去[red]2[/red]点最大生命，查看更具吸引力的玩偶。",
 	"NEW_DOLL_ROOM.pages.EXTRA.description": "你将注意力集中在三尊明显并非本房间“原住民”的玩偶身上。\n\n它们的气息既陌生，又莫名令人心动……",
 	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.title": "再看几个玩偶",
 	"NEW_DOLL_ROOM.pages.EXTRA.options.MORE.description": "失去[red]5[/red]点生命。重新随机上方选项中的玩偶。",
@@ -22,6 +24,8 @@
 	"NEW_DOLL_ROOM.pages.BAIZEALER_DOLL.description": "捡起来了这尊毛绒绒的玩偶，它的眼睛中隐约[aqua]闪烁着不息的星光。[/aqua]\n[blue]“辰星们…会随你一同飞往旅途的终点。”[/blue]",
 	"NEW_DOLL_ROOM.pages.GALLOP_DOLL.description": "一尊仿佛随时会奔跑起来的玩偶。\n[gold]“和我一起跑。”[/gold]",
 	"NEW_DOLL_ROOM.pages.DOGKING_DOLL.description": "一尊颇有王者气度的玩偶。\n[gold]“汪。”[/gold]",
-	"NEW_DOLL_ROOM.pages.RHINE_DOLL.description": "一尊仿佛在权衡能量与伤害的玩偶。",
-	"NEW_DOLL_ROOM.pages.PANSY_DOLL.description": "一尊像三色堇一样安静的玩偶，花瓣般的色彩。"
+	"NEW_DOLL_ROOM.pages.RHINE_DOLL.description": "你对上玩偶宁谧的目光，他等待着你主动选择他。\n[aqua][sine]「若是感兴趣，我乐意与你分享知识，他们来自天上之月。」[/sine][/aqua]",
+	"NEW_DOLL_ROOM.pages.PANSY_DOLL.description": "一尊像三色堇一样安静的玩偶，花瓣般的色彩。",
+	"NEW_DOLL_ROOM.pages.SUPERCATBALL_A_G178.description": "一颗毛茸茸的[blue]猫球[/blue]玩偶，体内隐约能看见[blue]等离子[/blue]的微光在流转。\n[aqua]「娜娜因——咕噜。」[/aqua]",
+	"NEW_DOLL_ROOM.pages.I_ZERO_DOLL.description": "你看向那个玩偶，但却感受到了它的视线。\n[red]「又见面啦？她这会不在，但我能陪你走完剩下的路。」[/red]"
 }

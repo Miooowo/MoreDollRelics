@@ -17,7 +17,7 @@ namespace MoreDollRelics.src.Relics;
 /// <summary>
 /// 莱茵玩偶：战斗开始增加10%的攻击伤害。回合开始获得1点能量，能量耗尽时，下回合增加50%的伤害。
 /// </summary>
-public sealed class RhineDoll : RelicModel
+public sealed class RhineDoll : RelicModel, IDollRelic
 {
 	private const decimal BattleStartDamageBonusPercent = 10m;
 	private const decimal EnergyPerTurn = 1m;

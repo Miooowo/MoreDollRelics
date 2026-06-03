@@ -6,6 +6,46 @@
 
 ---
 
+## [v0.4.0-beta 2026-06-03]
+
+合并 `main` v0.4.0 内容，并保留 `beta` 分支对新版游戏 API 的适配。
+
+### 新增 (Added)
+- 与 v0.4.0 相同：月夜零玩偶、娜娜因猫球，及薇斯塔/三色堇/狗王/玩偶房/莱茵等变更。
+
+### 修复 (Fixed)
+- 适配新版 `sts2` 战斗钩子：`BeforeSideTurnEnd` / `AfterSideTurnEnd`、`BeforeSideTurnStart`、`AfterSideTurnStart` 等签名变更。
+- `PowerCmd.Apply` 需传入 `PlayerChoiceContext`；`CardPileCmd.AddGeneratedCardToCombat` 改为传入 `Player` 创建者。
+- 补充 `ModPck` Godot 导出预设，修复 `dotnet build` 时 `.pck` 打包失败。
+
+### 说明
+- 本预发布面向已更新至较新版本的《杀戮尖塔 2》；稳定版请使用 [v0.4.0](https://github.com/Miooowo/MoreDollRelics/releases/tag/v0.4.0)（合并后发布）。
+
+---
+
+## [v0.4.0 2026-04-23]
+
+### 新增 (Added)
+- 新增事件遗物「月夜零玩偶」：每回合获得费用为3的随机颜色或无色一张「能力」牌；每打出 3 张能力牌额外打出一次；第 4 回合开始时对所有敌人造成 15 点伤害。已加入共享遗物池、玩偶房模组池与中、英遗物与事件文案。
+- 新增事件遗物「娜娜因猫球」（`SupercatballAG178`，遗物表条目 `SUPERCATBALL_A_G178`）：战斗开始时生成等离子球；打出卡牌时每支付 1 点能量费用获得 4 点格挡；仅通过玩偶房模组玩偶池获取，已加入中、英遗物与玩偶室剧情文案。
+
+### 变更 (Changed)
+- **月夜零玩偶**：第四个回合开始每回合从全部角色颜色牌池 + 无色牌池随机一张能力牌入手，**本场费用固定为 3 点能量**（`EnergyCost.SetThisCombat`）；描述使用 `{Energy:energyIcons()}`；生成牌使用 `CombatState.CreateCard` 以修复弃牌换堆异常；中、英遗物描述已更新。
+- 版本号更新为 **v0.4.0**。
+- **薇斯塔玩偶**：玩偶因进出商店节奏而「离开」时，获得相当于当时金币 10% 的金币；激活期间在商店完成付费移除卡牌时，返还本次支付的金币（`MerchantCardRemovalEntry` Harmony 补丁）。
+- **三色堇玩偶**：改为前三个回合打出的第一张牌的消耗复制品放入抽牌堆，费用本场减少 1 点能量；同步中、英遗物描述。
+- **狗王玩偶**：拾起时失去 3 点最大生命；大伤触发无实体改为在敌人回合内受到不低于生命上限 20% 的未格挡伤害；遗物描述已更新。
+- **玩偶房**：选项「仔细检查然后挑选最好的那个」后的第四项改为失去 2 点最大生命后进入模组玩偶子页；新增对应中、英事件文案 key。
+- **莱茵玩偶**：玩偶室获取剧情 `NEW_DOLL_ROOM.pages.RHINE_DOLL.description` 更新为宁谧目光与淡青色动效台词（中、英）。
+
+### 修复 (Fixed)
+- （无）
+
+### 移除 (Removed)
+- （无）
+
+---
+
 ## [v0.3.0-beta 2026-06-01]
 
 基于 v0.3.0，适配较新游戏版本的 API（`beta` 分支预发布）。
@@ -14,9 +54,6 @@
 - 适配新版 `sts2` 战斗钩子：`BeforeSideTurnEnd` / `AfterSideTurnEnd`、`BeforeSideTurnStart`、`AfterSideTurnStart` 等签名变更。
 - `PowerCmd.Apply` 需传入 `PlayerChoiceContext`；`CardPileCmd.AddGeneratedCardToCombat` 改为传入 `Player` 创建者。
 - 补充 `ModPck` Godot 导出预设，修复 `dotnet build` 时 `.pck` 打包失败。
-
-### 说明
-- 本预发布面向已更新至较新版本的《杀戮尖塔 2》；稳定版请使用 [v0.3.0](https://github.com/Miooowo/MoreDollRelics/releases/tag/v0.3.0)。
 
 ---
 

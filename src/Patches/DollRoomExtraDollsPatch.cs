@@ -29,7 +29,7 @@ internal static class DollRoomExtraDollsPatch
         AccessTools.Method(typeof(EventModel), "SetEventFinished", new[] { typeof(LocString) });
 
     /// <summary>
-    /// 选项1「随便抓一尊」：从原版3个+模组5个中随机获得一个玩偶。
+    /// 选项1「随便抓一尊」：从原版3个+模组9个中随机获得一个玩偶。
     /// </summary>
     [HarmonyPrefix]
     [HarmonyPatch("ChooseRandom")]
@@ -40,7 +40,7 @@ internal static class DollRoomExtraDollsPatch
     }
 
     /// <summary>
-    /// 选项2「花点时间慢慢看」：从原版3个+模组5个中随机抽2个供选择。
+    /// 选项2「花点时间慢慢看」：从原版3个+模组9个中随机抽2个供选择。
     /// </summary>
     [HarmonyPrefix]
     [HarmonyPatch("TakeSomeTime")]
@@ -149,11 +149,14 @@ internal static class DollRoomExtraDollsPatch
             )
         };
 
-        // 第 4 个选项：进入模组玩偶子页面
+        // 第 4 个选项：失去 2 点最大生命后进入模组玩偶子页面
         options.Add(new EventOption(
             dollRoom,
-            () => ShowExtraDollChoices(dollRoom),
-            "NEW_DOLL_ROOM.pages.INITIAL.options.EXTRA"
+            () => OpenModDollsAfterMaxHpCost(dollRoom),
+            new LocString("events", "NEW_DOLL_ROOM.pages.EXAMINE.options.MOD_DOLLS.title"),
+            new LocString("events", "NEW_DOLL_ROOM.pages.EXAMINE.options.MOD_DOLLS.description"),
+            "NEW_DOLL_ROOM.pages.EXAMINE.options.MOD_DOLLS",
+            System.Array.Empty<IHoverTip>()
         ));
 
         var desc = new LocString("events", "DOLL_ROOM.pages.EXAMINE.description");
@@ -164,7 +167,7 @@ internal static class DollRoomExtraDollsPatch
     private const int MoreDollsHpCost = 5;
     private const int ModDollsShownCount = 3;
 
-    /// <summary>模组玩偶池：7 个玩偶，用于随机抽 3 个展示。</summary>
+    /// <summary>模组玩偶池：9 个玩偶，用于随机抽 3 个展示。</summary>
     private static readonly (RelicModel relic, string descriptionKey)[] ModDollPool =
     {
         (ModelDb.Relic<VistaDoll>(), "NEW_DOLL_ROOM.pages.VISTA_DOLL.description"),
@@ -174,11 +177,28 @@ internal static class DollRoomExtraDollsPatch
         (ModelDb.Relic<DogkingDoll>(), "NEW_DOLL_ROOM.pages.DOGKING_DOLL.description"),
         (ModelDb.Relic<RhineDoll>(), "NEW_DOLL_ROOM.pages.RHINE_DOLL.description"),
         (ModelDb.Relic<PansyDoll>(), "NEW_DOLL_ROOM.pages.PANSY_DOLL.description"),
+        (ModelDb.Relic<SupercatballAG178>(), "NEW_DOLL_ROOM.pages.SUPERCATBALL_A_G178.description"),
+        (ModelDb.Relic<IZeroDoll>(), "NEW_DOLL_ROOM.pages.I_ZERO_DOLL.description"),
     };
 
     /// <summary>
     /// 子页面：随机展示 3 个模组玩偶 + 选项「失去5点生命刷新」（参考 SlipperyBridge 的 HoldOn 刷新）。
     /// </summary>
+    private static async Task OpenModDollsAfterMaxHpCost(DollRoom dollRoom)
+    {
+        if (dollRoom.Owner?.Creature != null)
+        {
+            await CreatureCmd.LoseMaxHp(
+                new ThrowingPlayerChoiceContext(),
+                dollRoom.Owner.Creature,
+                2m,
+                isFromCard: false
+            );
+        }
+
+        await ShowExtraDollChoices(dollRoom);
+    }
+
     private static async Task ShowExtraDollChoices(DollRoom dollRoom)
     {
         BuildAndShowExtraDollChoices(dollRoom, payHpFirst: false);

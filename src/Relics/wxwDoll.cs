@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace MoreDollRelics.src.Relics;
 
-public sealed class wxwDoll : RelicModel
+public sealed class wxwDoll : RelicModel, IDollRelic
 {
 	private bool _wasUsed;
 	private bool _triggeredThisCombat;

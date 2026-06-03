@@ -1,6 +1,11 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/export/
 
 # Visual Studio
 .vs/
+
+# Local tooling & release artifacts
+.tools/
+dist/
