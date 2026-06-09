@@ -191,6 +191,7 @@ internal static class DollRoomExtraDollsPatch
         (ModelDb.Relic<SupercatballAG178>(), "NEW_DOLL_ROOM.pages.SUPERCATBALL_A_G178.description"),
         (ModelDb.Relic<IZeroDoll>(), "NEW_DOLL_ROOM.pages.I_ZERO_DOLL.description"),
         (ModelDb.Relic<WilishaDoll>(), "NEW_DOLL_ROOM.pages.WILISHA_DOLL.description"),
+        (ModelDb.Relic<CifkaDoll>(), "NEW_DOLL_ROOM.pages.CIFKA_DOLL.description"),
     };
 
     /// <summary>

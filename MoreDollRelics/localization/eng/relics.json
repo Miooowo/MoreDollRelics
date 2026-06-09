@@ -31,5 +31,9 @@
 
 	"WILISHA_DOLL.title": "Wilisha Doll",
 	"WILISHA_DOLL.flavor": "[red]\"On the tenth strike, it's time to collect.\"[/red]",
-	"WILISHA_DOLL.description": "For every [blue]{Attacks}[/blue] [gold]Attack[/gold] cards you play, deal [red]{Damage}[/red] damage to a random enemy and it loses [red]{HpLoss}[/red] HP."
+	"WILISHA_DOLL.description": "For every [blue]{Attacks}[/blue] [gold]Attack[/gold] cards you play, deal [red]{Damage}[/red] damage to a random enemy and it loses [red]{HpLoss}[/red] HP.",
+
+	"CIFKA_DOLL.title": "Cifka Doll",
+	"CIFKA_DOLL.flavor": "[purple]\"Curses? Those are someone else's rules.\"[/purple]",
+	"CIFKA_DOLL.description": "Upon pickup, remove all [gold]Curse[/gold] cards from your deck ([gold]Eternal[/gold] included). You [blue]can no longer receive[/blue] [gold]Curse[/gold] cards.\nAt the start of each combat, enemies lose [blue]{StrLoss}[/blue] [red]Strength[/red] and [blue]{DexLoss}[/blue] [green]Dexterity[/green] this turn.\nFor every [blue]{Attacks}[/blue] [gold]Attack[/gold] cards you play, apply [blue]{Weak}[/blue] [purple]Weak[/purple] to ALL enemies.\nIn Act 3, you are [blue]guaranteed[/blue] to encounter the [gold]Trial[/gold] event once."
 }
