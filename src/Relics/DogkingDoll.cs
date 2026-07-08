@@ -148,7 +148,6 @@ public sealed class DogkingDoll : RelicModel, IDollRelic
 				return;
 			}
 		}
-
 		// 若不存在增上限命令，退化为不执行（避免在未知 API 上造成崩溃）。
 	}
 
