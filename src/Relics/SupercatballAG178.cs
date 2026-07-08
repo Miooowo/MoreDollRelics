@@ -13,10 +13,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace MoreDollRelics.src.Relics;
 
-/// <summary>事件遗物「娜娜因猫球」：战斗开始时生成等离子球；每支付 1 点卡牌能量费用获得 4 点格挡；仅玩偶房模组池。relics 表 key：SUPERCATBALL_A_G178。</summary>
+/// <summary>事件遗物「娜娜因猫球」：战斗开始时生成等离子球；每支付 1 点卡牌能量费用获得 2 点格挡；仅玩偶房模组池。relics 表 key：SUPERCATBALL_A_G178。</summary>
 public sealed class SupercatballAG178 : RelicModel, IDollRelic
 {
-	private const decimal BlockPerEnergy = 4m;
+	private const decimal BlockPerEnergy = 2m;
 
 	public override RelicRarity Rarity => RelicRarity.Event;
 
