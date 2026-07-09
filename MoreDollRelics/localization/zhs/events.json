@@ -29,8 +29,5 @@
 	"NEW_DOLL_ROOM.pages.SUPERCATBALL_A_G178.description": "一颗毛茸茸的[blue]猫球[/blue]玩偶，体内隐约能看见[blue]等离子[/blue]的微光在流转。\n[aqua]「娜娜因——咕噜。」[/aqua]",
 	"NEW_DOLL_ROOM.pages.I_ZERO_DOLL.description": "你看向那个玩偶，但却感受到了它的视线。\n[red]「又见面啦？她这会不在，但我能陪你走完剩下的路。」[/red]",
 	"NEW_DOLL_ROOM.pages.WILISHA_DOLL.description": "一尊绿色的玩偶，藤蔓包裹着她。\n[green]「我会带着我的触手……」[/green]",
-	"NEW_DOLL_ROOM.pages.CIFKA_DOLL.description": "一尊稻草人玩偶，不知道是谁的恶作剧。\n[purple]「在最高的那一层，你会再次站上审判的席位。」[/purple]",
-	"NEW_DOLL_INVITATION_LETTER.options.TAKE.title": "接受玩偶的邀请函",
-	"NEW_DOLL_INVITATION_LETTER.options.TAKE.description": "获得[gold]玩偶的邀请函[/gold]。",
-	"NEW_DOLL_INVITATION_LETTER.pages.DONE.description": "你接过这封写有陌生笔迹的邀请函。\n\n纸张微微发热，仿佛在催促你前往某个隐藏房间。"
+	"NEW_DOLL_ROOM.pages.CIFKA_DOLL.description": "一尊稻草人玩偶，不知道是谁的恶作剧。\n[purple]「在最高的那一层，你会再次站上审判的席位。」[/purple]"
 }

@@ -35,8 +35,5 @@
 
 	"CIFKA_DOLL.title": "西夫卡玩偶",
 	"CIFKA_DOLL.flavor": "[purple]「行为正义。」[/purple]",
-	"CIFKA_DOLL.description": "拾起时，移除你牌组中的所有[gold]诅咒牌[/gold]。你之后[blue]不会再获得[/blue][gold]诅咒牌[/gold]。\n战斗开始时，使所有敌人本回合失去[blue]{StrLoss}[/blue]点[red]力量[/red]与[blue]{DexLoss}[/blue]点[green]敏捷[/green]。\n每打出[blue]{Attacks}[/blue]张[gold]攻击牌[/gold]，给予所有敌人[blue]{Weak}[/blue]层[purple]虚弱[/purple]。\n在第三幕，你[blue]必定会[/blue]遭遇一次[gold]审判[/gold]事件。",
-	"DOLL_INVITATION_LETTER.title": "玩偶的邀请函",
-	"DOLL_INVITATION_LETTER.flavor": "纸页边缘残留着柔软布料的香味。",
-	"DOLL_INVITATION_LETTER.description": "击败[blue]{RequiredElites}[/blue]名精英敌人后，第二幕第一个[gold]?[/gold]房必定为[gold]玩偶室[/gold]。"
+	"CIFKA_DOLL.description": "拾起时，移除你牌组中的所有[gold]诅咒牌[/gold]。你之后[blue]不会再获得[/blue][gold]诅咒牌[/gold]。\n战斗开始时，使所有敌人本回合失去[blue]{StrLoss}[/blue]点[red]力量[/red]与[blue]{DexLoss}[/blue]点[green]敏捷[/green]。\n每打出[blue]{Attacks}[/blue]张[gold]攻击牌[/gold]，给予所有敌人[blue]{Weak}[/blue]层[purple]虚弱[/purple]。\n在第三幕，你[blue]必定会[/blue]遭遇一次[gold]审判[/gold]事件。"
 }

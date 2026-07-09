@@ -35,8 +35,5 @@
 
 	"CIFKA_DOLL.title": "Cifka Doll",
 	"CIFKA_DOLL.flavor": "[purple]\"Curses? Those are someone else's rules.\"[/purple]",
-	"CIFKA_DOLL.description": "Upon pickup, remove all [gold]Curse[/gold] cards from your deck ([gold]Eternal[/gold] included). You [blue]can no longer receive[/blue] [gold]Curse[/gold] cards.\nAt the start of each combat, enemies lose [blue]{StrLoss}[/blue] [red]Strength[/red] and [blue]{DexLoss}[/blue] [green]Dexterity[/green] this turn.\nFor every [blue]{Attacks}[/blue] [gold]Attack[/gold] cards you play, apply [blue]{Weak}[/blue] [purple]Weak[/purple] to ALL enemies.\nIn Act 3, you are [blue]guaranteed[/blue] to encounter the [gold]Trial[/gold] event once.",
-	"DOLL_INVITATION_LETTER.title": "Doll Invitation Letter",
-	"DOLL_INVITATION_LETTER.flavor": "The paper still carries a soft scent of cloth.",
-	"DOLL_INVITATION_LETTER.description": "After defeating [blue]{RequiredElites}[/blue] Elite enemies, the first [gold]?[/gold] room in Act 2 is guaranteed to be the [gold]Doll Room[/gold]. Then this relic is disabled."
+	"CIFKA_DOLL.description": "Upon pickup, remove all [gold]Curse[/gold] cards from your deck ([gold]Eternal[/gold] included). You [blue]can no longer receive[/blue] [gold]Curse[/gold] cards.\nAt the start of each combat, enemies lose [blue]{StrLoss}[/blue] [red]Strength[/red] and [blue]{DexLoss}[/blue] [green]Dexterity[/green] this turn.\nFor every [blue]{Attacks}[/blue] [gold]Attack[/gold] cards you play, apply [blue]{Weak}[/blue] [purple]Weak[/purple] to ALL enemies.\nIn Act 3, you are [blue]guaranteed[/blue] to encounter the [gold]Trial[/gold] event once."
 }
