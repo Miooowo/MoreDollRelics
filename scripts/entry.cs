@@ -29,5 +29,6 @@ public class Entry
 		ModHelper.AddModelToPool<SharedRelicPool, IZeroDoll>();
 		ModHelper.AddModelToPool<SharedRelicPool, WilishaDoll>();
 		ModHelper.AddModelToPool<SharedRelicPool, CifkaDoll>();
+		ModHelper.AddModelToPool<EventRelicPool, DollInvitationLetter>();
 	}
 }

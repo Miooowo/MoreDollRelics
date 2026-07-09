@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Random;
@@ -62,6 +63,7 @@ internal static class DollRoomSpawnPatch
 	{
 		foreach (string typeName in new[]
 		         {
+			         "MegaCrit.Sts2.Core.Multiplayer.Game.EventSynchronizer",
 			         "MegaCrit.Sts2.Core.Odds.UnknownMapPointOdds",
 			         "MegaCrit.Sts2.Core.Events.EventOdds",
 			         "MegaCrit.Sts2.Core.Events.EventSelector"
@@ -71,16 +73,28 @@ internal static class DollRoomSpawnPatch
 			if (type == null)
 				continue;
 
-			foreach (string methodName in new[] { "Roll", "RollEvent", "PickEvent", "ChooseEvent" })
+			foreach (MethodInfo method in AccessTools.GetDeclaredMethods(type))
 			{
-				MethodInfo? method = AccessTools.DeclaredMethod(type, methodName);
-				if (method == null)
-					continue;
 				if (!typeof(EventModel).IsAssignableFrom(method.ReturnType))
+					continue;
+				if (!method.Name.Contains("Event", StringComparison.OrdinalIgnoreCase)
+				    && !method.Name.Contains("Roll", StringComparison.OrdinalIgnoreCase)
+				    && !method.Name.Contains("Pick", StringComparison.OrdinalIgnoreCase)
+				    && !method.Name.Contains("Choose", StringComparison.OrdinalIgnoreCase)
+				    && !method.Name.Contains("Select", StringComparison.OrdinalIgnoreCase))
 					continue;
 				yield return method;
 			}
 		}
+	}
+
+	[HarmonyPrepare]
+	private static bool Prepare()
+	{
+		bool hasTargets = TargetEventSelectionMethods().Any();
+		if (!hasTargets)
+			Log.Warn("[MoreDollRelics] DollRoomSpawnPatch skipped: no compatible target methods found.");
+		return hasTargets;
 	}
 
 	[HarmonyPostfix]
@@ -136,6 +150,13 @@ internal static class DollRoomSpawnPatch
 	[HarmonyPatch]
 	private static class Act1EliteCounterPatch
 	{
+		[HarmonyPrepare]
+		private static bool Prepare()
+		{
+			Log.Warn("[MoreDollRelics] Act1EliteCounterPatch skipped: counting now handled by relic state.");
+			return false;
+		}
+
 		[HarmonyTargetMethods]
 		private static IEnumerable<MethodBase> TargetMethods()
 		{
