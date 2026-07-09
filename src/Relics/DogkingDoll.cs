@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using HarmonyLib;
@@ -32,7 +31,6 @@ public sealed class DogkingDoll : RelicModel, IDollRelic
 	private const decimal MaxHpGainPerCycle = 1m;
 	private const int BattlesPerMaxHpGain = 3;
 	private const decimal IntangibleStacksOnTrigger = 3m;
-	private const decimal StunDurationTurns = 1m;
 
 	private decimal _pendingIntangibleStacks;
 
@@ -93,7 +91,7 @@ public sealed class DogkingDoll : RelicModel, IDollRelic
 		{
 			_pendingIntangibleStacks += IntangibleStacksOnTrigger;
 			if (dealer != null)
-				await TryApplyStun(choiceContext, dealer, target);
+				await CreatureCmd.Stun(dealer);
 		}
 	}
 
@@ -151,27 +149,4 @@ public sealed class DogkingDoll : RelicModel, IDollRelic
 		// 若不存在增上限命令，退化为不执行（避免在未知 API 上造成崩溃）。
 	}
 
-	private static async Task TryApplyStun(PlayerChoiceContext ctx, Creature enemyTarget, Creature source)
-	{
-		Type? stunPowerType = AccessTools.TypeByName("MegaCrit.Sts2.Core.Models.Powers.StunPower")
-		                     ?? AccessTools.TypeByName("MegaCrit.Sts2.Core.Models.Powers.StunnedPower");
-		if (stunPowerType == null)
-			return;
-
-		MethodInfo? genericApply = typeof(PowerCmd)
-			.GetMethods(BindingFlags.Public | BindingFlags.Static)
-			.FirstOrDefault(m =>
-				m.Name == "Apply" &&
-				m.IsGenericMethodDefinition &&
-				m.GetGenericArguments().Length == 1 &&
-				m.GetParameters().Length == 5
-			);
-		if (genericApply == null)
-			return;
-
-		MethodInfo apply = genericApply.MakeGenericMethod(stunPowerType);
-		object? result = apply.Invoke(null, new object?[] { ctx, enemyTarget, StunDurationTurns, source, null });
-		if (result is Task task)
-			await task;
-	}
 }

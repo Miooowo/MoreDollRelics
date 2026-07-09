@@ -241,11 +241,7 @@ internal static class DollRoomExtraDollsPatch
 
     private static void BuildAndShowExtraDollChoices(DollRoom dollRoom, bool payHpFirst)
     {
-        Rng rng = dollRoom.Owner?.RunState?.Rng?.Niche;
-        if (rng == null)
-        {
-            rng = Rng.Chaotic;
-        }
+        Rng rng = dollRoom.Owner?.RunState?.Rng?.Niche ?? Rng.Chaotic;
 
         var pickedIndices = PickModDollIndices(ModDollsShownCount, rng);
 

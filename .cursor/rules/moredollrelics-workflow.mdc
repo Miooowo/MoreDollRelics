@@ -1,0 +1,71 @@
+description: MoreDollRelics 会话与发布流程（AI 须遵守）
+alwaysApply: true
+---
+
+# MoreDollRelics 工作流（强制）
+
+## 项目
+
+在《杀戮尖塔 2》中扩展更多玩偶相关遗物、事件和补丁机制。
+
+## 会话规则
+
+- 每次会话**完成代码/资源修改后**：执行一次 `git commit`，并更新 [CHANGELOG.md](CHANGELOG.md)（若本次改动值得记录）。  
+  **若本次为某发行版本补充/修改了 `CHANGELOG` 中该版本的小节**：须**同步**编写或更新 [`pre-release/RELEASE_NOTES_<Version>.md`](pre-release/RELEASE_NOTES_0.8.md)（文件名中 `<Version>` 与 `MoreDollRelics.json` 的 `Version` 一致，如 `0.8` → `RELEASE_NOTES_0.8.md`）。
+  `RELEASE_NOTES` 编写规则（参考 Keep a Changelog 1.0.0）：
+  - 面向玩家/使用者，避免粘贴提交记录（不要 dump git log）。
+  - 按类型分组，优先使用：`Added` / `Changed` / `Removed` / `Fixed`（必要时可加 `Security`）。
+  - 仅写“可感知、可验证”的变更；每条一句话，突出影响与收益。
+  - 与 `CHANGELOG` 同版本要点保持一致，可更短但不得遗漏关键破坏性信息。
+  - 版本在上、旧版本在下；新版本建议写明发布日期（ISO 8601，如 `2026-05-28`）。
+  - 若该版本无可发布变更，不强行新增空 `RELEASE_NOTES` 文件。
+- 每次完成**影响程序行为或资源**的改动后：执行下方「发布强制命令」**第 1 步**（生成 DLL + 导出 PCK + 写入 `pre-release/` 与 zip），便于本地实测。  
+  **例外**：仅文档、或仅 `.cursor/rules` 等规则说明、且用户未要求打包时，可跳过第 1 步。
+- 当用户说**「发布」**：执行第 3 步，上传发布物到 GitHub Release。
+- 发布产物目录：仓库根目录下的 [pre-release/](pre-release/)（由 `MoreDollRelics.csproj` 的发布目标生成）。
+
+## 发布强制命令（禁止擅自改 `dotnet` / `gh` 的核心参数）
+
+以下均在**仓库根目录**（含 `MoreDollRelics.csproj` 的目录）执行。
+
+### 1. 生成 DLL、导出 PCK、写入 pre-release 并打 zip
+
+使用 **Release** 配置完整构建（与日常发版一致；勿随意加 `/p:ExportModPck=false` 等跳过 PCK，除非用户明确要求「只编译」）：
+
+```powershell
+dotnet build "MoreDollRelics.csproj" -c Release
+```
+
+成功后期望存在（版本号以 `MoreDollRelics.json` 的 `Version` 为准）：
+
+- `pre-release/MoreDollRelics.dll`
+- `pre-release/MoreDollRelics.json`
+- `pre-release/MoreDollRelics.pck`
+- `pre-release/MoreDollRelics-<Version>.zip`
+
+### 2. 打包为 zip
+
+上一步的 Release 构建若已配置发布目标，通常**已生成** `pre-release/MoreDollRelics-<Version>.zip`。若缺失，先解决第 1 步（Godot 路径、`Sts2Dir`、PCK 导出错误等），勿用手写 zip 替代，除非用户指定。
+
+### 3. GitHub Release 上传
+
+仓库：`Miooowo/MoreDollRelics`。上传至少包含：
+
+- `pre-release/MoreDollRelics-<Version>.zip`
+- 可选：单独附件 `pre-release/MoreDollRelics.dll`、`pre-release/MoreDollRelics.json`、`pre-release/MoreDollRelics.pck`（用户要求时）
+
+创建或增补 Release 时使用 `gh`（已登录 `gh auth` 前提下），**标签名与版本一致**（如 `v0.8`）。示例（新建 Release 并附 zip；按实际版本与说明文件替换）：
+
+```powershell
+gh release create "v0.8" --repo "Miooowo/MoreDollRelics" --title "MoreDollRelics 0.8" --notes-file "pre-release/RELEASE_NOTES_0.8.md" --latest "pre-release/MoreDollRelics-0.8.zip"
+```
+
+若需追加三个独立文件到**已有** Release：
+
+```powershell
+gh release upload "v0.8" "pre-release/MoreDollRelics.dll" "pre-release/MoreDollRelics.json" "pre-release/MoreDollRelics.pck" -R "Miooowo/MoreDollRelics" --clobber
+```
+
+## 说明
+
+本文件为仓库内工作流与发版的**单一约定入口**（Cursor `alwaysApply`）。若与 `MoreDollRelics.json` 或实际构建脚本不一致，以 **MoreDollRelics.json 与构建产物**为准，并应同步更新本规则。

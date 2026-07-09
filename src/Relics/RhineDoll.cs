@@ -72,9 +72,10 @@ public sealed class RhineDoll : RelicModel, IDollRelic
 	/// <summary>回合结束前记录本回合是否能量耗尽，用于下回合 +50% 伤害。</summary>
 	public override Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
 	{
-		if (Owner?.Creature == null || side != CombatSide.Player)
+		var owner = Owner;
+		if (owner?.Creature == null || side != CombatSide.Player)
 			return Task.CompletedTask;
-		if (Owner!.PlayerCombatState.Energy <= 0)
+		if (owner.PlayerCombatState?.Energy <= 0)
 			_grantBonusDamageNextTurn = true;
 		return Task.CompletedTask;
 	}

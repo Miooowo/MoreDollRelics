@@ -14,11 +14,11 @@
 
 		<RootNamespace>MoreDollRelics</RootNamespace>
 
-		<GodotPath>F:/megadot-4.5.1-m.8-windows-x86_64-llvm-editor-csharp/MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
+		<GodotPath>F:/megadot/MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
 
 		<!-- 改成你的杀戮尖塔2安装目录 -->
 
-		<Sts2Dir>F:\SteamLibrary\steamapps\common\Slay the Spire 2</Sts2Dir>
+		<Sts2Dir>F:\Steam\steamapps\common\Slay the Spire 2</Sts2Dir>
 
 		<Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir>
 
@@ -93,6 +93,23 @@
 			Command="&quot;$(GodotPath)&quot; --path &quot;$(MSBuildProjectDirectory)&quot; --headless --export-pack &quot;ModPck&quot; &quot;$(Sts2Dir)\mods\$(MSBuildProjectName)\$(MSBuildProjectName).pck&quot;"
 			EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
 			Condition="Exists('$(GodotPath)')"
+			WorkingDirectory="$(MSBuildProjectDirectory)" />
+	</Target>
+
+	<Target Name="PackPreRelease" AfterTargets="CopyMod" Condition="'$(Configuration)' == 'Release'">
+		<PropertyGroup>
+			<PreReleaseDir>$(MSBuildProjectDirectory)\pre-release</PreReleaseDir>
+			<PckOutputPath>$(Sts2Dir)\mods\$(MSBuildProjectName)\$(MSBuildProjectName).pck</PckOutputPath>
+		</PropertyGroup>
+
+		<Message Text="Packing pre-release artifacts..." Importance="high" />
+		<MakeDir Directories="$(PreReleaseDir)" />
+		<Copy SourceFiles="$(TargetPath)" DestinationFiles="$(PreReleaseDir)\$(MSBuildProjectName).dll" />
+		<Copy SourceFiles="$(MSBuildProjectDirectory)\$(MSBuildProjectName).json" DestinationFiles="$(PreReleaseDir)\$(MSBuildProjectName).json" />
+		<Error Condition="!Exists('$(PckOutputPath)')" Text="Expected PCK not found at $(PckOutputPath). Please fix Godot export before releasing." />
+		<Copy SourceFiles="$(PckOutputPath)" DestinationFiles="$(PreReleaseDir)\$(MSBuildProjectName).pck" />
+		<Exec
+			Command="powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;$manifest = Get-Content '$(MSBuildProjectDirectory)\$(MSBuildProjectName).json' -Encoding UTF8 -Raw | ConvertFrom-Json; $version = $manifest.version; $zipPath = '$(PreReleaseDir)\$(MSBuildProjectName)-' + $version + '.zip'; if (Test-Path $zipPath) { Remove-Item $zipPath -Force }; Compress-Archive -Path '$(PreReleaseDir)\$(MSBuildProjectName).dll','$(PreReleaseDir)\$(MSBuildProjectName).json','$(PreReleaseDir)\$(MSBuildProjectName).pck' -DestinationPath $zipPath -Force&quot;"
 			WorkingDirectory="$(MSBuildProjectDirectory)" />
 	</Target>
 

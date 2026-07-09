@@ -1,9 +1,13 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
@@ -56,10 +60,11 @@ public sealed class wxwDoll : RelicModel, IDollRelic
 		Flash();
 		WasUsed = true;
 		_triggeredThisCombat = true;
-		decimal healAmount = 1m - creature.CurrentHp;
+		decimal healAmount = 7m - creature.CurrentHp;
 		if (healAmount > 0m)
 			await CreatureCmd.Heal(creature, healAmount);
 		await CreatureCmd.GainBlock(creature, 999m, ValueProp.Unpowered, null);
+		await AutoPlayAllCards(creature);
 	}
 
 	public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
@@ -74,6 +79,31 @@ public sealed class wxwDoll : RelicModel, IDollRelic
 	{
 		_triggeredThisCombat = false;
 		return Task.CompletedTask;
+	}
+
+	private static async Task AutoPlayAllCards(Creature creature)
+	{
+		if (creature.Player == null)
+			return;
+
+		var context = new BlockingPlayerChoiceContext();
+		PlayerCombatState? state = creature.Player.PlayerCombatState;
+		if (state == null)
+			return;
+
+		List<CardModel> cards = new();
+		cards.AddRange(state.Hand.Cards);
+		cards.AddRange(state.DrawPile.Cards);
+		cards.AddRange(state.DiscardPile.Cards);
+		cards.AddRange(state.ExhaustPile.Cards);
+
+		foreach (CardModel card in cards.Where(c => c != null && !c.HasBeenRemovedFromState).Distinct().ToList())
+		{
+			if (creature.IsDead || CombatManager.Instance.IsOverOrEnding)
+				break;
+			await CardPileCmd.Add(card, PileType.Play, skipVisuals: true);
+			await CardCmd.AutoPlay(context, card, null, skipCardPileVisuals: true);
+		}
 	}
 }
 
