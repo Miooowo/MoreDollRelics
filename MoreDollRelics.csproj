@@ -14,11 +14,11 @@
 
 		<RootNamespace>MoreDollRelics</RootNamespace>
 
-		<GodotPath>F:/megadot-4.5.1-m.8-windows-x86_64-llvm-editor-csharp/MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
+		<GodotPath>F:/megadot/MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
 
 		<!-- 改成你的杀戮尖塔2安装目录 -->
 
-		<Sts2Dir>F:\SteamLibrary\steamapps\common\Slay the Spire 2</Sts2Dir>
+		<Sts2Dir>F:\Steam\steamapps\common\Slay the Spire 2</Sts2Dir>
 
 		<Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir>
 

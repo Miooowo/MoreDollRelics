@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -37,7 +38,7 @@ public sealed class RhineDoll : RelicModel, IDollRelic
 		new DynamicVar("DepletedPercent", DepletedBonusPercent)
 	};
 
-	public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+	public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
 	{
 		if (dealer != Owner?.Creature)
 			return 1m;
@@ -74,7 +75,7 @@ public sealed class RhineDoll : RelicModel, IDollRelic
 	{
 		if (Owner?.Creature == null || side != CombatSide.Player)
 			return Task.CompletedTask;
-		if (Owner!.PlayerCombatState.Energy <= 0)
+		if (Owner.PlayerCombatState != null && Owner.PlayerCombatState.Energy <= 0)
 			_grantBonusDamageNextTurn = true;
 		return Task.CompletedTask;
 	}

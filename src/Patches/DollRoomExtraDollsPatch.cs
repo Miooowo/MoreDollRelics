@@ -101,8 +101,8 @@ internal static class DollRoomExtraDollsPatch
             new ThrowingPlayerChoiceContext(),
             dollRoom.Owner.Creature,
             (DamageVar)dollRoom.DynamicVars["TakeTimeHpLoss"],
-            null,
-            null
+            null!,
+            null!
         );
 
         var combined = new List<(RelicModel relic, string descriptionKey)>(VanillaDollPool.Length + ModDollPool.Length);
@@ -136,8 +136,8 @@ internal static class DollRoomExtraDollsPatch
             new ThrowingPlayerChoiceContext(),
             dollRoom.Owner!.Creature,
             (DamageVar)dollRoom.DynamicVars["ExamineHpLoss"],
-            null,
-            null
+            null!,
+            null!
         );
 
         // 3 个原版玩偶（保持原有描述 key）
@@ -241,11 +241,7 @@ internal static class DollRoomExtraDollsPatch
 
     private static void BuildAndShowExtraDollChoices(DollRoom dollRoom, bool payHpFirst)
     {
-        Rng rng = dollRoom.Owner?.RunState?.Rng?.Niche;
-        if (rng == null)
-        {
-            rng = Rng.Chaotic;
-        }
+        Rng rng = dollRoom.Owner?.RunState?.Rng?.Niche ?? Rng.Chaotic;
 
         var pickedIndices = PickModDollIndices(ModDollsShownCount, rng);
 
