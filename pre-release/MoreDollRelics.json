@@ -4,7 +4,7 @@
   "name": "MoreDollRelics",
   "author": "ClockCycas",
   "description": "添加更多的玩偶遗物。",
-  "version": "0.7-beta",
+  "version": "0.8-beta",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [],

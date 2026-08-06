@@ -35,5 +35,9 @@
 
 	"CIFKA_DOLL.title": "Cifka Doll",
 	"CIFKA_DOLL.flavor": "[purple]\"Curses? Those are someone else's rules.\"[/purple]",
-	"CIFKA_DOLL.description": "Upon pickup, remove all [gold]Curse[/gold] cards from your deck ([gold]Eternal[/gold] included). You [blue]can no longer receive[/blue] [gold]Curse[/gold] cards.\nAt the start of each combat, enemies lose [blue]{StrLoss}[/blue] [red]Strength[/red] and [blue]{DexLoss}[/blue] [green]Dexterity[/green] this turn.\nFor every [blue]{Attacks}[/blue] [gold]Attack[/gold] cards you play, apply [blue]{Weak}[/blue] [purple]Weak[/purple] to ALL enemies.\nIn Act 3, you are [blue]guaranteed[/blue] to encounter the [gold]Trial[/gold] event once."
+	"CIFKA_DOLL.description": "Upon pickup, remove all [gold]Curse[/gold] cards from your deck ([gold]Eternal[/gold] included). You [blue]can no longer receive[/blue] [gold]Curse[/gold] cards.\nAt the start of each combat, enemies lose [blue]{StrLoss}[/blue] [red]Strength[/red] and [blue]{DexLoss}[/blue] [green]Dexterity[/green] this turn.\nFor every [blue]{Attacks}[/blue] [gold]Attack[/gold] cards you play, apply [blue]{Weak}[/blue] [purple]Weak[/purple] to ALL enemies.\nIn Act 3, you are [blue]guaranteed[/blue] to encounter the [gold]Trial[/gold] event once.",
+
+	"AIBING_DOLL.title": "Aibing Doll",
+	"AIBING_DOLL.flavor": "[aqua]\"Hungry? Eat. Fighting? Hit harder.\"[/aqua]",
+	"AIBING_DOLL.description": "Your Attacks deal additional damage equal to [blue]{DamagePercent}%[/blue] of your Max HP.\nAt the end of combat, [blue]{DropChance}%[/blue] chance to drop a [gold]food relic[/gold]."
 }
