@@ -1,11 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -64,7 +65,7 @@ public sealed class wxwDoll : RelicModel, IDollRelic
 		if (healAmount > 0m)
 			await CreatureCmd.Heal(creature, healAmount);
 		await CreatureCmd.GainBlock(creature, 999m, ValueProp.Unpowered, null);
-		await AutoPlayAllCards(creature);
+		await AutoPlayAllCardsFromAllPiles();
 	}
 
 	public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
@@ -81,29 +82,49 @@ public sealed class wxwDoll : RelicModel, IDollRelic
 		return Task.CompletedTask;
 	}
 
-	private static async Task AutoPlayAllCards(Creature creature)
+	private async Task AutoPlayAllCardsFromAllPiles()
 	{
-		if (creature.Player == null)
+		if (Owner?.Creature?.CombatState is not ICombatState combatState)
 			return;
 
-		var context = new BlockingPlayerChoiceContext();
-		PlayerCombatState? state = creature.Player.PlayerCombatState;
-		if (state == null)
-			return;
+		var context = new ThrowingPlayerChoiceContext();
+		var snapshot = new List<CardModel>();
+		foreach (PileType pileType in new[] { PileType.Hand, PileType.Draw, PileType.Discard, PileType.Exhaust })
+			snapshot.AddRange(GetCardsFromPile(combatState, pileType));
 
-		List<CardModel> cards = new();
-		cards.AddRange(state.Hand.Cards);
-		cards.AddRange(state.DrawPile.Cards);
-		cards.AddRange(state.DiscardPile.Cards);
-		cards.AddRange(state.ExhaustPile.Cards);
-
-		foreach (CardModel card in cards.Where(c => c != null && !c.HasBeenRemovedFromState).Distinct().ToList())
+		foreach (CardModel card in snapshot.Distinct().ToList())
 		{
-			if (creature.IsDead || CombatManager.Instance.IsOverOrEnding)
-				break;
-			await CardPileCmd.Add(card, PileType.Play, skipVisuals: true);
-			await CardCmd.AutoPlay(context, card, null, skipCardPileVisuals: true);
+			if (card.Owner != Owner)
+				continue;
+			try
+			{
+				await CardCmd.AutoPlay(context, card, null, AutoPlayType.Default);
+			}
+			catch
+			{
+				// 单张卡无法自动打出时跳过，不阻塞遗物核心保命流程。
+			}
 		}
+	}
+
+	private static IEnumerable<CardModel> GetCardsFromPile(ICombatState combatState, PileType pileType)
+	{
+		MethodInfo? getPileMethod = combatState.GetType().GetMethod("GetPile", BindingFlags.Instance | BindingFlags.Public);
+		object? pile = getPileMethod?.Invoke(combatState, new object[] { pileType });
+		if (pile == null)
+			return Array.Empty<CardModel>();
+
+		PropertyInfo? cardsProperty = pile.GetType().GetProperty("Cards", BindingFlags.Instance | BindingFlags.Public);
+		if (cardsProperty?.GetValue(pile) is not System.Collections.IEnumerable cards)
+			return Array.Empty<CardModel>();
+
+		var result = new List<CardModel>();
+		foreach (object? item in cards)
+		{
+			if (item is CardModel card)
+				result.Add(card);
+		}
+		return result;
 	}
 }
 

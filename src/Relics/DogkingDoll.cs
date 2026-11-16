@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Reflection;
 using System.Threading.Tasks;
-using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -20,7 +18,7 @@ namespace MoreDollRelics.src.Relics;
 /// <summary>
 /// 狗王玩偶：拾起时失去3点生命上限；回合开始时恢复1生命并获得2格挡；
 /// 每3场战斗获得1点生命上限；
-/// 在敌人回合内受到一次不低于生命上限20%的未格挡伤害时，击晕来源敌人并在下回合开始获得3层无实体。
+/// 在敌人回合内受到一次不低于生命上限20%的未格挡伤害时，击晕伤害来源并在下回合开始获得3层无实体。
 /// </summary>
 public sealed class DogkingDoll : RelicModel, IDollRelic
 {
@@ -28,14 +26,12 @@ public sealed class DogkingDoll : RelicModel, IDollRelic
 	private const decimal BlockPerTurn = 2m;
 	private const decimal BigDamageThresholdPercent = 0.2m;
 	private const decimal MaxHpLossOnObtain = 3m;
-	private const decimal MaxHpGainPerCycle = 1m;
-	private const int BattlesPerMaxHpGain = 3;
+	private const int CombatsPerMaxHpGain = 3;
+	private const decimal MaxHpGainPerTrigger = 1m;
 	private const decimal IntangibleStacksOnTrigger = 3m;
 
-	private decimal _pendingIntangibleStacks;
-
-	[SavedProperty]
-	public int BattlesCleared { get; set; }
+	private bool _grantIntangibleNextTurn;
+	private int _combatsSinceLastMaxHpGain;
 
 	public override RelicRarity Rarity => RelicRarity.Event;
 
@@ -45,17 +41,28 @@ public sealed class DogkingDoll : RelicModel, IDollRelic
 		new DynamicVar("Heal", HealPerTurn),
 		new DynamicVar("Block", BlockPerTurn),
 		new DynamicVar("ThresholdPercent", BigDamageThresholdPercent * 100m),
-		new DynamicVar("BattlesPerGain", BattlesPerMaxHpGain),
-		new DynamicVar("MaxHpGain", MaxHpGainPerCycle),
-		new DynamicVar("IntangibleStacks", IntangibleStacksOnTrigger)
+		new DynamicVar("IntangibleStacks", IntangibleStacksOnTrigger),
+		new DynamicVar("CombatsPerGain", CombatsPerMaxHpGain),
+		new DynamicVar("MaxHpGain", MaxHpGainPerTrigger),
 	};
+
+	[SavedProperty]
+	public int CombatsSinceLastMaxHpGain
+	{
+		get => _combatsSinceLastMaxHpGain;
+		set
+		{
+			AssertMutable();
+			_combatsSinceLastMaxHpGain = value < 0 ? 0 : value;
+		}
+	}
 
 	public override async Task AfterObtained()
 	{
 		if (Owner?.Creature == null)
 			return;
 		Flash();
-		await CreatureCmd.LoseMaxHp(new BlockingPlayerChoiceContext(), Owner.Creature, MaxHpLossOnObtain, isFromCard: false);
+		await CreatureCmd.LoseMaxHp(new BlockingPlayerChoiceContext(), Owner.Creature, MaxHpLossOnObtain, cardSource: null);
 	}
 
 	public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
@@ -67,12 +74,11 @@ public sealed class DogkingDoll : RelicModel, IDollRelic
 		await CreatureCmd.Heal(creature, HealPerTurn);
 		await CreatureCmd.GainBlock(creature, BlockPerTurn, ValueProp.Unpowered, null);
 
-		if (_pendingIntangibleStacks > 0m)
+		if (_grantIntangibleNextTurn)
 		{
-			decimal stacks = _pendingIntangibleStacks;
-			_pendingIntangibleStacks = 0m;
+			_grantIntangibleNextTurn = false;
 			Flash();
-			await PowerCmd.Apply<IntangiblePower>(choiceContext, creature, stacks, creature, null);
+			await PowerCmd.Apply<IntangiblePower>(choiceContext, creature, IntangibleStacksOnTrigger, creature, null);
 		}
 	}
 
@@ -80,73 +86,37 @@ public sealed class DogkingDoll : RelicModel, IDollRelic
 	{
 		if (target != Owner?.Creature || result.UnblockedDamage <= 0)
 			return;
-		var combatState = Owner.Creature.CombatState;
+		Creature ownerCreature = Owner.Creature;
+		var combatState = ownerCreature.CombatState;
 		if (combatState == null || combatState.CurrentSide != CombatSide.Enemy)
 			return;
-		decimal maxHp = Owner.Creature.MaxHp;
+		decimal maxHp = ownerCreature.MaxHp;
 		if (maxHp <= 0)
 			return;
 		decimal threshold = maxHp * BigDamageThresholdPercent;
-		if ((decimal)result.UnblockedDamage >= threshold)
+		if ((decimal)result.UnblockedDamage < threshold)
+			return;
+
+		_grantIntangibleNextTurn = true;
+		if (dealer != null && dealer.IsAlive && dealer.Side == CombatSide.Enemy)
 		{
-			_pendingIntangibleStacks += IntangibleStacksOnTrigger;
-			if (dealer != null)
-				await CreatureCmd.Stun(dealer);
+			Flash();
+			await CreatureCmd.Stun(dealer, "DOGKING_DOLL");
 		}
 	}
 
 	public override async Task AfterCombatEnd(CombatRoom _)
 	{
-		_pendingIntangibleStacks = 0m;
-		if (Owner?.Creature == null || Owner.Creature.IsDead)
+		_grantIntangibleNextTurn = false;
+		if (Owner?.Creature == null)
 			return;
 
-		BattlesCleared++;
-		if (BattlesCleared % BattlesPerMaxHpGain == 0)
-		{
-			Flash();
-			await TryGainMaxHp(Owner.Creature, MaxHpGainPerCycle);
-		}
+		CombatsSinceLastMaxHpGain++;
+		if (CombatsSinceLastMaxHpGain < CombatsPerMaxHpGain)
+			return;
+
+		CombatsSinceLastMaxHpGain = 0;
+		Flash();
+		await CreatureCmd.GainMaxHp(Owner.Creature, MaxHpGainPerTrigger);
 	}
-
-	private static async Task TryGainMaxHp(Creature creature, decimal amount)
-	{
-		MethodInfo? method = AccessTools.Method(
-			typeof(CreatureCmd),
-			"GainMaxHp",
-			new[] { typeof(PlayerChoiceContext), typeof(Creature), typeof(decimal), typeof(bool) }
-		);
-		if (method != null)
-		{
-			object? task = method.Invoke(
-				null,
-				new object[] { new ThrowingPlayerChoiceContext(), creature, amount, false }
-			);
-			if (task is Task awaitable)
-			{
-				await awaitable;
-				return;
-			}
-		}
-
-		method = AccessTools.Method(
-			typeof(CreatureCmd),
-			"GainMaxHp",
-			new[] { typeof(PlayerChoiceContext), typeof(Creature), typeof(decimal) }
-		);
-		if (method != null)
-		{
-			object? task = method.Invoke(
-				null,
-				new object[] { new ThrowingPlayerChoiceContext(), creature, amount }
-			);
-			if (task is Task awaitable)
-			{
-				await awaitable;
-				return;
-			}
-		}
-		// 若不存在增上限命令，退化为不执行（避免在未知 API 上造成崩溃）。
-	}
-
 }

@@ -70,13 +70,14 @@ public sealed class WilishaDoll : RelicModel, IDollRelic
 			return;
 
 		Flash();
-		await CreatureCmd.Damage(choiceContext, target, TriggerDamage, ValueProp.Unpowered, Owner.Creature, cardPlay.Card);
+		await CreatureCmd.Damage(choiceContext, target, TriggerDamage, ValueProp.Unpowered, Owner.Creature, cardPlay.Card, null);
 		await CreatureCmd.Damage(
 			choiceContext,
 			target,
 			HpLoss,
 			ValueProp.Unblockable | ValueProp.Unpowered,
 			Owner.Creature,
+			null,
 			null);
 	}
 

@@ -163,6 +163,6 @@ public sealed class IZeroDoll : RelicModel, IDollRelic
 
 		if (Owner?.Creature == null)
 			return;
-		await CreatureCmd.Damage(choiceContext, enemies, NovaDamage, ValueProp.Unpowered, Owner.Creature, null);
+		await CreatureCmd.Damage(choiceContext, enemies, NovaDamage, ValueProp.Unpowered, Owner.Creature);
 	}
 }

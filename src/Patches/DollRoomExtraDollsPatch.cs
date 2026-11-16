@@ -101,8 +101,8 @@ internal static class DollRoomExtraDollsPatch
             new ThrowingPlayerChoiceContext(),
             dollRoom.Owner.Creature,
             (DamageVar)dollRoom.DynamicVars["TakeTimeHpLoss"],
-            null,
-            null
+            null!,
+            null!
         );
 
         var combined = new List<(RelicModel relic, string descriptionKey)>(VanillaDollPool.Length + ModDollPool.Length);
@@ -136,8 +136,8 @@ internal static class DollRoomExtraDollsPatch
             new ThrowingPlayerChoiceContext(),
             dollRoom.Owner!.Creature,
             (DamageVar)dollRoom.DynamicVars["ExamineHpLoss"],
-            null,
-            null
+            null!,
+            null!
         );
 
         // 3 个原版玩偶（保持原有描述 key）
@@ -192,6 +192,7 @@ internal static class DollRoomExtraDollsPatch
         (ModelDb.Relic<IZeroDoll>(), "NEW_DOLL_ROOM.pages.I_ZERO_DOLL.description"),
         (ModelDb.Relic<WilishaDoll>(), "NEW_DOLL_ROOM.pages.WILISHA_DOLL.description"),
         (ModelDb.Relic<CifkaDoll>(), "NEW_DOLL_ROOM.pages.CIFKA_DOLL.description"),
+        (ModelDb.Relic<AibingDoll>(), "NEW_DOLL_ROOM.pages.AIBING_DOLL.description"),
     };
 
     /// <summary>
@@ -205,7 +206,7 @@ internal static class DollRoomExtraDollsPatch
                 new ThrowingPlayerChoiceContext(),
                 dollRoom.Owner.Creature,
                 2m,
-                isFromCard: false
+                cardSource: null
             );
         }
 
