@@ -39,5 +39,9 @@
 
 	"AIBING_DOLL.title": "Aibing Doll",
 	"AIBING_DOLL.flavor": "[aqua]\"Hungry? Eat. Fighting? Hit harder.\"[/aqua]",
-	"AIBING_DOLL.description": "Your Attacks deal additional damage equal to [blue]{DamagePercent}%[/blue] of your Max HP.\nAt the end of combat, [blue]{DropChance}%[/blue] chance to drop a [gold]food relic[/gold]."
+	"AIBING_DOLL.description": "Your Attacks deal additional damage equal to [blue]{DamagePercent}%[/blue] of your Max HP.\nAt the end of combat, [blue]{DropChance}%[/blue] chance to drop a [gold]food relic[/gold].",
+
+	"WORTOX_DOLL.title": "Wortox Doll",
+	"WORTOX_DOLL.flavor": "[red]\"Hyuyu. Souls are such handy little things.\"[/red]",
+	"WORTOX_DOLL.description": "On pickup, gain [green]{MaxHp}[/green] Max HP.\nWhenever a creature is killed, gain [blue]1[/blue] Soul, up to [blue]{MaxSouls}[/blue].\nSouls above that limit drop, healing you and your allies for [green]{OverflowHeal}[/green] HP each.\nRight-click this relic to spend [blue]1[/blue] Soul, healing you and your allies for [green]{ReleaseHeal}[/green] HP each."
 }

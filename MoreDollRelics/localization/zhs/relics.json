@@ -39,5 +39,9 @@
 
 	"AIBING_DOLL.title": "艾冰玩偶",
 	"AIBING_DOLL.flavor": "[aqua]「饿了就吃，打人要狠。」[/aqua]",
-	"AIBING_DOLL.description": "战斗中，你的攻击额外造成最大生命值[blue]{DamagePercent}%[/blue]的伤害。\n战斗结束后，有[blue]{DropChance}%[/blue]概率掉落一件[gold]食物遗物[/gold]。"
+	"AIBING_DOLL.description": "战斗中，你的攻击额外造成最大生命值[blue]{DamagePercent}%[/blue]的伤害。\n战斗结束后，有[blue]{DropChance}%[/blue]概率掉落一件[gold]食物遗物[/gold]。",
+
+	"WORTOX_DOLL.title": "沃拓克斯玩偶",
+	"WORTOX_DOLL.flavor": "[red]「嘻。灵魂可是好东西。」[/red]",
+	"WORTOX_DOLL.description": "拾起时，最大生命值增加[green]{MaxHp}[/green]点。\n击杀生物时获得[blue]1[/blue]点灵魂，最多存储[blue]{MaxSouls}[/blue]点。\n灵魂溢出时自动掉落，回复你与盟友各[green]{OverflowHeal}[/green]点生命。\n右键此遗物，消耗[blue]1[/blue]点灵魂，回复你与盟友各[green]{ReleaseHeal}[/green]点生命。"
 }

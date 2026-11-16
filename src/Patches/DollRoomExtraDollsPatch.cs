@@ -193,6 +193,7 @@ internal static class DollRoomExtraDollsPatch
         (ModelDb.Relic<WilishaDoll>(), "NEW_DOLL_ROOM.pages.WILISHA_DOLL.description"),
         (ModelDb.Relic<CifkaDoll>(), "NEW_DOLL_ROOM.pages.CIFKA_DOLL.description"),
         (ModelDb.Relic<AibingDoll>(), "NEW_DOLL_ROOM.pages.AIBING_DOLL.description"),
+        (ModelDb.Relic<WortoxDoll>(), "NEW_DOLL_ROOM.pages.WORTOX_DOLL.description"),
     };
 
     /// <summary>

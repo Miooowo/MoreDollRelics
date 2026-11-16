@@ -30,5 +30,6 @@ public class Entry
 		ModHelper.AddModelToPool<SharedRelicPool, WilishaDoll>();
 		ModHelper.AddModelToPool<SharedRelicPool, CifkaDoll>();
 		ModHelper.AddModelToPool<SharedRelicPool, AibingDoll>();
+		ModHelper.AddModelToPool<SharedRelicPool, WortoxDoll>();
 	}
 }
